@@ -1,0 +1,678 @@
+/* =====================================================================
+   CASE STUDIES — reusable data model. Content is sourced from the
+   published Calyza Tech case studies; no invented metrics or claims.
+   To add a case study: append one object. Card, filters, route,
+   detail page and SEO are generated automatically.
+   ===================================================================== */
+
+export const CASE_FILTERS = ['ALL', 'AI', 'CLOUD', 'DATA', 'AUTOMATION', 'HEALTHCARE', 'FINANCE', 'TRAVEL'];
+
+export const CASE_STUDIES = [
+  {
+    slug: 'ai-agent-mortgage-application-processing',
+    title: 'AI Agent for Mortgage Application Processing',
+    shortName: 'Mortgage AI Agent',
+    client: 'Loan Intel',
+    industry: 'Financial Services',
+    categories: ['AI', 'FINANCE', 'AUTOMATION'],
+    featured: false,
+    motif: 'mortgage',
+    shortDescription:
+      'An AI pipeline on AWS that assesses mortgage applications end to end — income, expenses, loans and eligibility — returning a scored decision recommendation in about 2.5 minutes.',
+    challenge: [
+      'High volumes of mortgage applications arrive daily, each containing payslips, bank statements, tax returns, Form 11 documents and loan agreements.',
+      'Underwriters spent most of their time manually extracting data from financial documents — slow, error-prone and impossible to scale.',
+      'Self-employed applicants were particularly difficult: Form 11 and tax documents require specialist interpretation, and different underwriters applied different judgment to similar cases.',
+    ],
+    businessProblem:
+      'The institution needed operational efficiency and consistency at scale. Without automation it risked losing customers to faster competitors, rising costs with every new hire, and compliance exposure from inconsistent eligibility decisions across the underwriting team.',
+    approach: [
+      {
+        title: 'Income Analysis',
+        detail:
+          'Amazon Textract OCR and Amazon Bedrock extract salary data from payslips and salary certificates, validate consistency between them, detect bonus payments, and handle self-employed income and Form 11 tax documents.',
+      },
+      {
+        title: 'Expense & Loan Analysis',
+        detail:
+          'GCP Gemini 2.5 Pro processes bank statements to identify recurring transactions, flag suspicious activity and extract EMI obligations from loan statements — cross-validated against income data.',
+      },
+      {
+        title: 'Summary Analysis',
+        detail:
+          'All extracted data is combined to calculate the debt-to-income ratio, generate an eligibility score from 0–100, and produce a final recommendation — Approve, Conditional or Reject — with detailed reasoning for the underwriter.',
+      },
+      {
+        title: 'Serverless Delivery',
+        detail:
+          'The pipeline runs as a 7-Lambda sequential architecture on AWS. The underwriter interface is deployed on AWS Amplify, and the entire system ships via AWS SAM with a GitHub Actions CI/CD pipeline.',
+      },
+    ],
+    solution:
+      'A Generative AI underwriting pipeline built on a serverless AWS architecture. Underwriters upload documents, track processing in real time, manage queries and view eligibility results — while the system extracts, cross-validates and scores every application automatically.',
+    workflow: [
+      { step: '01', label: 'Application documents' },
+      { step: '02', label: 'Income analysis — Textract + Bedrock' },
+      { step: '03', label: 'Expense & loan analysis — Gemini' },
+      { step: '04', label: 'Eligibility score (0–100)' },
+      { step: '05', label: 'Decision support — Approve · Conditional · Reject' },
+    ],
+    technologies: [
+      'AWS Lambda',
+      'Amazon Textract',
+      'Amazon Bedrock (Nova Pro)',
+      'GCP Gemini 2.5 Pro',
+      'AWS Amplify',
+      'AWS SAM',
+      'GitHub Actions',
+    ],
+    outcomes: [
+      { value: '2.5 min', label: 'Processing time — down from 2–4 hours of manual review (98% reduction)' },
+      { value: '0–100', label: 'Eligibility score with confidence guidance on every decision' },
+      { value: '75%', label: 'Lower repeat-processing cost via per-file OCR caching' },
+      { value: 'Unlimited', label: 'Concurrent applications with no additional cost per application' },
+    ],
+    outcomeNote:
+      'Salary mismatches between payslips and certificates are flagged automatically, suspicious transactions surface without manual review, and underwriters now focus on query resolution and final decisions rather than data extraction.',
+    keyTakeaway:
+      'Underwriters stopped extracting data and started making decisions — every application returns a scored, reasoned recommendation in minutes.',
+    tags: ['Amazon Bedrock', 'AWS Lambda', 'Amazon Textract', 'Gemini'],
+    metaDescription:
+      'How Calyza Tech built a serverless AI agent on AWS that processes mortgage applications in ~2.5 minutes — income analysis, expense validation and scored eligibility decisions.',
+  },
+  {
+    slug: 'ai-powered-invoice-automation-on-aws',
+    title: 'AI-Powered Invoice Automation on AWS',
+    shortName: 'Invoice Automation',
+    client: 'Fintech — Accounts Payable',
+    industry: 'FinTech',
+    categories: ['AI', 'AUTOMATION', 'FINANCE'],
+    featured: false,
+    motif: 'invoice',
+    shortDescription:
+      'A serverless invoice intelligence platform that transforms multi-page vendor invoices into schema-validated JSON — 15–20 minutes of manual extraction down to 45 seconds–2 minutes.',
+    challenge: [
+      'Manual extraction consumed 15–20 minutes per invoice across hundreds of vendor invoices daily.',
+      'High risk of errors in GST details, tax calculations, PO numbers and line items.',
+      'Multiple vendor invoice formats with no standardized layout.',
+      'Manual workflows could not scale during month-end and peak processing periods.',
+      'Slow processing delayed vendor payments and financial reporting, with limited auditability.',
+    ],
+    businessProblem:
+      'For a fintech managing high-volume accounts payable, slow and inconsistent invoice handling directly delayed vendor payments, GST compliance and ERP reporting — and every peak period demanded more manual hours.',
+    approach: [
+      {
+        title: 'Ingestion & Validation',
+        detail: 'Invoices arrive through secure APIs and are validated before processing begins.',
+      },
+      {
+        title: 'Smart OCR Processing',
+        detail:
+          'Amazon Textract digitizes each document; Amazon S3 caching reuses prior OCR output, cutting repeat processing costs by up to 75%.',
+      },
+      {
+        title: 'Structured AI Extraction',
+        detail:
+          'Amazon Bedrock (Nova Pro) extracts and validates 40+ financial fields into standardized, schema-validated JSON with confidence scoring.',
+      },
+      {
+        title: 'Storage & Handoff',
+        detail:
+          'Structured results are stored securely in Amazon S3 with full job tracking via AWS Systems Manager and CloudWatch, ready for ERP integration.',
+      },
+    ],
+    solution:
+      'An AWS-native, serverless-first and event-driven invoice platform with Multi-AZ high availability, secure-by-design implementation and pay-per-use cost optimization — no infrastructure to manage, no capacity to plan.',
+    workflow: [
+      { step: '01', label: 'Invoice documents in' },
+      { step: '02', label: 'Textract OCR — S3 smart cache' },
+      { step: '03', label: 'Bedrock extraction — 40+ fields' },
+      { step: '04', label: 'Schema-validated JSON' },
+      { step: '05', label: 'ERP handoff via S3' },
+    ],
+    technologies: [
+      'Amazon Textract',
+      'Amazon Bedrock (Nova Pro)',
+      'AWS Lambda',
+      'Amazon S3',
+      'AWS Systems Manager',
+      'Amazon CloudWatch',
+      'Amazon Cognito',
+      'AWS IAM',
+    ],
+    outcomes: [
+      { value: '45s–2min', label: 'Per invoice — down from 15–20 minutes of manual extraction' },
+      { value: '40+', label: 'Financial fields extracted into schema-validated JSON' },
+      { value: '75%', label: 'Repeat OCR cost reduction through S3 caching' },
+      { value: '100s', label: 'Of invoices processed concurrently on serverless scaling' },
+    ],
+    outcomeNote:
+      'Encrypted S3 storage, IAM-based security, Cognito authentication and comprehensive audit logging keep the pipeline compliant and fully observable.',
+    keyTakeaway:
+      'Invoices went from a daily manual bottleneck to a serverless pipeline that only costs anything when it is actually running.',
+    tags: ['AWS', 'Amazon Textract', 'Amazon Bedrock', 'Serverless'],
+    metaDescription:
+      'Serverless AI invoice automation on AWS: 15–20 minutes of manual extraction reduced to 45 seconds–2 minutes, with 40+ validated financial fields and GST compliance.',
+  },
+  {
+    slug: 'dasa-holidays-aws-cloud-infrastructure',
+    title: 'Dasa Holidays AWS Cloud Infrastructure',
+    shortName: 'Cloud Infrastructure',
+    client: 'Dasa Holidays',
+    industry: 'Travel & Hospitality',
+    categories: ['CLOUD', 'TRAVEL'],
+    featured: false,
+    motif: 'travel',
+    shortDescription:
+      'A production-ready AWS foundation for a growing hotel booking platform — multi-tier, Multi-AZ, secure by design, built on Well-Architected principles.',
+    challenge: [
+      'Zero downtime requirement for the booking platform.',
+      'Protection against web attacks and data breaches.',
+      'Scalability for peak booking seasons.',
+      'Cost efficiency within budget, with audit logging and security best practices.',
+      'Support for both QloApps (hotel booking) and SuiteCRM (customer relationship management).',
+    ],
+    businessProblem:
+      'As Dasa Holidays expanded and demand grew, the business needed infrastructure that could deliver high reliability, seamless scalability during peak booking seasons, and strong security for customer data and business operations.',
+    approach: [
+      {
+        title: 'Multi-Tier Isolation',
+        detail:
+          'A public tier for the Application Load Balancer, a private tier for application servers with no direct internet access, and a private database tier for maximum security.',
+      },
+      {
+        title: 'High Availability',
+        detail:
+          'Resources distributed across two Availability Zones (ap-south-1a/1b), RDS MySQL Multi-AZ with automatic failover, and load-balanced application servers.',
+      },
+      {
+        title: 'Security First',
+        detail:
+          'AWS WAF against OWASP Top 10 threats, CloudTrail audit logging, VPC Flow Logs, encrypted EBS/RDS/S3 storage, and secure access via IAM roles and Systems Manager.',
+      },
+      {
+        title: 'Cost Optimization',
+        detail:
+          'Right-sized instances, a single NAT Gateway, S3 lifecycle policies and Reserved Instance recommendations.',
+      },
+    ],
+    solution:
+      'A complete AWS environment: VPC 10.0.0.0/16 with six subnets, Application Load Balancer, two r6i.2xlarge backend and four m6i.xlarge frontend servers (Ubuntu 24 LTS, Nginx, PHP 8.1), RDS MySQL 8.0 Multi-AZ with automated 7-day backups and Performance Insights, and four S3 buckets for media, CRM attachments, backups and centralized logs.',
+    workflow: [
+      { step: '01', label: 'Customer request' },
+      { step: '02', label: 'AWS WAF + Load Balancer' },
+      { step: '03', label: 'Private app tier — QloApps · SuiteCRM' },
+      { step: '04', label: 'RDS MySQL — Multi-AZ failover' },
+      { step: '05', label: 'S3 media, backups & logs' },
+    ],
+    technologies: [
+      'Amazon EC2',
+      'Application Load Balancer',
+      'Amazon RDS MySQL (Multi-AZ)',
+      'Amazon S3',
+      'Amazon VPC',
+      'AWS WAF',
+      'AWS IAM',
+      'Amazon CloudWatch',
+      'AWS CloudTrail',
+      'AWS Systems Manager',
+      'Ubuntu 24 LTS',
+      'Nginx · PHP 8.1 · MySQL 8.0',
+    ],
+    outcomes: [
+      { value: '2 AZs', label: 'Multi-AZ architecture with automatic database failover' },
+      { value: 'Zero-trust', label: 'Private subnets throughout — the load balancer is the single entry point' },
+      { value: '100%', label: 'Audit coverage via CloudTrail and VPC Flow Logs' },
+      { value: 'Ready', label: 'For auto-scaling and CloudFront CDN when growth demands it' },
+    ],
+    outcomeNote:
+      'Designed on AWS Well-Architected Framework principles — security by design, high availability and a cost-optimization strategy with no vendor lock-in.',
+    keyTakeaway:
+      'A booking platform that can grow into its busiest season without re-architecting.',
+    tags: ['AWS', 'VPC', 'RDS', 'WAF'],
+    metaDescription:
+      'How Calyza Tech built Dasa Holidays a secure, Multi-AZ AWS cloud infrastructure for its QloApps booking platform and SuiteCRM — Well-Architected, zero-trust, peak-season ready.',
+  },
+  {
+    slug: 'healthcare-document-processing-ai-ocr',
+    title: 'Healthcare Document Processing with AI-Powered OCR',
+    shortName: 'Healthcare Documentation Processing',
+    client: 'Confidential — Healthcare Operations',
+    industry: 'Healthcare',
+    categories: ['AI', 'HEALTHCARE', 'AUTOMATION'],
+    metric: { value: '<5 min', label: 'processing time — down from 2–3 hours' },
+    featured: false,
+    motif: 'ocr',
+    shortDescription:
+      'Cloud-native medical document processing for thousands of daily records — from 2–3 hours of manual handling to under 5 minutes, fully HIPAA-compliant.',
+    challenge: [
+      'Thousands of documents processed daily: patient records, insurance claim forms, clinical notes, diagnostic reports and handwritten prescriptions.',
+      'Manual transcription created bottlenecks and delays.',
+      'Human transcription errors impacted billing accuracy and clinical decisions.',
+      'Bulk uploads during peak periods could not be handled.',
+      'Documents required 2–3 hours of processing, with compliance risk around audit trails and HIPAA — and manual labor costs exceeding $8,000 per month.',
+    ],
+    businessProblem:
+      'Manual document processing threatened billing accuracy, clinical decision-making and HIPAA audit readiness — at a cost of more than $8,000 per month in labor alone.',
+    approach: [
+      {
+        title: 'AI-Powered OCR',
+        detail: 'Google Cloud Vision API with advanced preprocessing tuned for medical documents.',
+      },
+      {
+        title: 'Handwriting & Checkbox Recognition',
+        detail: 'Purpose-built handling for handwritten prescriptions and annotations.',
+      },
+      {
+        title: 'Parallel Processing',
+        detail: 'Bulk document uploads processed concurrently through a RESTful API architecture.',
+      },
+      {
+        title: 'Secure Storage',
+        detail: 'Encrypted AWS S3 storage with versioning, designed for HIPAA compliance and complete audit trails.',
+      },
+    ],
+    solution:
+      'A cloud-native medical document processing platform powered by AI and cloud infrastructure — real-time processing through a RESTful API, automated validation, and secure encrypted storage on AWS S3.',
+    workflow: [
+      { step: '01', label: 'Medical documents in' },
+      { step: '02', label: 'Preprocessing' },
+      { step: '03', label: 'OCR + handwriting recognition' },
+      { step: '04', label: 'Automated validation' },
+      { step: '05', label: 'Secure S3 storage + API delivery' },
+    ],
+    technologies: ['Google Cloud Vision API', 'AWS S3', 'RESTful API architecture'],
+    outcomes: [
+      { value: '95%', label: 'Reduction in manual data entry' },
+      { value: '<5 min', label: 'Processing time — down from 2–3 hours' },
+      { value: '70%', label: 'Reduction in operational costs' },
+      { value: '80%', label: 'Reduction in data errors' },
+      { value: '99.9%', label: 'System uptime' },
+      { value: '500+', label: 'Documents per hour at peak — 50+ concurrently, 98% automated validation success' },
+    ],
+    outcomeNote:
+      'Faster clinical decision-making, improved patient satisfaction, full HIPAA compliance with complete audit trails, zero data loss with S3 versioning — and staff reallocated to higher-value patient care.',
+    keyTakeaway:
+      'Staff stopped transcribing documents and returned to patient care — with compliance built in, not bolted on.',
+    tags: ['OCR', 'Google Cloud Vision', 'AWS S3', 'HIPAA'],
+    metaDescription:
+      'AI-powered OCR for healthcare document processing: 2–3 hours reduced to under 5 minutes, 95% less manual data entry, HIPAA-compliant on AWS S3.',
+  },
+  {
+    slug: 'careops-home-health-referral-extraction',
+    title: 'CAREOPS.AI Home Health Referral Extraction',
+    shortName: 'CareOps AI',
+    client: 'CareOps AI',
+    industry: 'Healthcare',
+    categories: ['AI', 'HEALTHCARE', 'DATA'],
+    metric: { value: '6–7 min', label: 'per complex referral — OCR completes in under 10 seconds' },
+    featured: false,
+    motif: 'referral',
+    shortDescription:
+      'Nexus-AI transforms multi-page home health referral packages into schema-validated patient records in ~6–7 minutes — HIPAA-aligned and fully observable.',
+    challenge: [
+      'Hundreds of patient referrals processed daily, each a multi-page PDF package: clinical notes, physician orders, insurance information, medication lists and patient history.',
+      'Clinical and administrative staff manually extracted demographics, insurance identifiers, physician contacts, medications and diagnosis codes — consuming significant staff hours per referral.',
+      'Manual transcription produced incorrect medication names, insurance identifiers and diagnosis codes.',
+      'No standardized document layout; the manual process could not scale with referral volume.',
+      'End-to-end processing took hours, delaying insurance verification, physician coordination and care scheduling — with gaps in HIPAA audit trails.',
+    ],
+    businessProblem:
+      'A multi-region home health provider with 200+ clinical staff depends on timely, accurate data extraction to initiate care, coordinate with payors and onboard patients into the EHR — under strict HIPAA compliance requirements.',
+    approach: [
+      {
+        title: 'Ingestion & Job Tracking',
+        detail:
+          'Each referral passes nine integrity validation checks, receives a unique Job ID, and is tracked through AWS Systems Manager with structured CloudWatch logging.',
+      },
+      {
+        title: 'Smart OCR Caching',
+        detail:
+          'Amazon Textract digitizes documents via parallel workers; existing OCR output is reused from Amazon S3, reducing repeat processing time by up to 75%.',
+      },
+      {
+        title: 'Multi-Section FM Extraction',
+        detail:
+          'Amazon Bedrock (Nova Pro) sequentially extracts 8 medical record sections with section-specific prompts — output validated, programmatically repaired if required, and normalized against a strict JSON schema.',
+      },
+      {
+        title: 'Storage & Handoff',
+        detail:
+          'Canonical and per-section JSON records are stored securely in the patient’s S3 folder; a structured success message is sent via Amazon SQS for asynchronous ingestion into the CareOps platform.',
+      },
+    ],
+    solution:
+      'Nexus-AI — an AWS-native, cloud-native medical document intelligence platform. Amazon Textract handles OCR-based text extraction, Amazon Bedrock (Nova Pro) performs intelligent structured extraction, and an event-driven architecture provides comprehensive monitoring and automated notifications across the 7-stage pipeline.',
+    workflow: [
+      { step: '01', label: 'Referral package in' },
+      { step: '02', label: 'Integrity checks + job tracking' },
+      { step: '03', label: 'Textract OCR — smart S3 cache' },
+      { step: '04', label: 'Nova Pro extraction — 8 sections' },
+      { step: '05', label: 'Schema-validated record → SQS handoff' },
+    ],
+    technologies: [
+      'Amazon Textract',
+      'Amazon Bedrock (Nova Pro)',
+      'Amazon ECS Fargate',
+      'Amazon S3',
+      'Amazon SQS',
+      'AWS Systems Manager',
+      'Amazon CloudWatch',
+      'AWS Secrets Manager',
+    ],
+    outcomes: [
+      { value: '6–7 min', label: 'Per complex referral — OCR itself completes in under 10 seconds' },
+      { value: '8', label: 'Canonical medical record sections extracted and schema-validated' },
+      { value: '75%', label: 'Repeat Textract cost reduction through smart S3 caching' },
+      { value: 'HIPAA', label: 'Aligned — encrypted S3, no PII in logs, AWS Secrets Manager' },
+    ],
+    outcomeNote:
+      'Containerized deployment on Amazon ECS Fargate scales horizontally for volume spikes, while Systems Manager job tracking and job-correlated CloudWatch telemetry provide full observability.',
+    keyTakeaway:
+      'Referral intake stopped being a staffing problem and became a pipeline.',
+    tags: ['Amazon Textract', 'Amazon Bedrock', 'ECS Fargate', 'HIPAA'],
+    metaDescription:
+      'Nexus-AI for CAREOPS.AI: home health referral packages turned into schema-validated patient records in ~6–7 minutes — a HIPAA-aligned, 7-stage AWS pipeline.',
+  },
+  {
+    slug: 'jpp-tech-ai-powered-chatbot',
+    title: 'JPP Tech – AI Powered Chatbot',
+    shortName: 'AI Chatbot',
+    client: 'JPPTech Services',
+    industry: 'Digital Agency',
+    categories: ['AI', 'AUTOMATION'],
+    featured: false,
+    motif: 'chatbot',
+    shortDescription:
+      'A GenAI website concierge — Amazon Bedrock Nova Pro with a FAISS semantic knowledge base — that answers service questions instantly and converts inquiries into conversations.',
+    challenge: [
+      'Manual inquiry handling: teams spent time responding to repeated questions about services, AI capabilities, SEO, web development, branding, pricing direction and project fit.',
+      'Delayed lead engagement: visitors depended on calls, emails, forms or manual follow-ups, delaying responses and reducing conversion opportunities.',
+      'No intelligent website assistant to guide visitors through services, company background and value proposition.',
+      'Company knowledge existed across website content but had no semantic search layer for programmatic retrieval.',
+      'A growing client base across India, the USA and international markets needed a channel that works across time zones.',
+    ],
+    businessProblem:
+      'As JPPTech Services scaled its global client base and AI-first positioning, every repeated question consumed team time — and every slow response risked a lost conversion.',
+    approach: [
+      {
+        title: 'Semantic Knowledge Base',
+        detail:
+          'JPPTech website content processed into optimized knowledge chunks — services, AI solutions, leadership, values, company information — embedded with Amazon Titan Embeddings and stored in FAISS for fast semantic retrieval.',
+      },
+      {
+        title: 'GenAI Response Engine',
+        detail:
+          'A FastAPI backend integrates with Amazon Bedrock Nova Pro to deliver concise, context-aware answers — JPPTech-specific when knowledge is available, general knowledge when required.',
+      },
+      {
+        title: 'Experience Layer',
+        detail:
+          'Landing page, dedicated chat interface, embeddable widget and iframe integration — responsive, dark/light theme support, greeting detection and graceful conversation closing.',
+      },
+    ],
+    solution:
+      'A targeted GenAI chatbot deployed on AWS (EC2, EBS, IAM, Elastic IP) that engages website visitors instantly, answers service-related questions accurately, and scales conversations across time zones.',
+    workflow: [
+      { step: '01', label: 'Visitor question' },
+      { step: '02', label: 'Titan Embeddings' },
+      { step: '03', label: 'FAISS semantic retrieval' },
+      { step: '04', label: 'Bedrock Nova Pro' },
+      { step: '05', label: 'Context-aware answer' },
+    ],
+    technologies: [
+      'Amazon Bedrock (Nova Pro)',
+      'Amazon Titan Embeddings',
+      'FAISS',
+      'FastAPI',
+      'Amazon EC2',
+      'Amazon EBS',
+      'AWS IAM',
+    ],
+    outcomes: [
+      { value: 'Instant', label: 'Answers about services, AI capabilities and company information' },
+      { value: '24×7', label: 'Lead engagement across time zones, without manual follow-ups' },
+      { value: 'Semantic', label: 'FAISS retrieval keeps answers grounded in JPPTech’s own knowledge' },
+      { value: 'Embeddable', label: 'Widget + iframe integration, responsive across devices' },
+    ],
+    outcomeNote:
+      'Repeated inquiries are automated so teams focus on qualified leads and strategic work — and the foundation extends to voice-based AI in future phases.',
+    keyTakeaway:
+      'Every visitor now gets an instant, accurate answer — at any hour, in any time zone.',
+    tags: ['Amazon Bedrock', 'FAISS', 'FastAPI', 'GenAI'],
+    metaDescription:
+      'JPP Tech’s AI-powered chatbot: Amazon Bedrock Nova Pro + FAISS semantic knowledge base delivering instant, context-aware answers and faster lead engagement.',
+  },
+  {
+    slug: 'kliqshot-cloud-infrastructure',
+    title: 'Production-Ready Cloud Infrastructure for an On-Demand Photography Marketplace',
+    shortName: 'KliqShot',
+    client: 'KliqShot',
+    industry: 'On-Demand Marketplace',
+    categories: ['CLOUD'],
+    featured: false,
+    layout: 'architecture',
+    motif: 'marketplace',
+    metric: { value: '~60%', label: 'infrastructure cost savings' },
+    shortDescription:
+      'GCP infrastructure for a three-portal photography marketplace — auto-scaling App Engine frontends, a private Cloud SQL core, and deployments measured in minutes.',
+    challenge: [
+      'High availability and real-time communication for a live booking marketplace.',
+      'Media management for high-volume photography content.',
+      'Security: private database exposure and zero secrets in the codebase.',
+      'Three application portals — customer, photographer and admin — on one coherent platform.',
+      'Cost efficiency versus a multi-VM approach, with fully automated deployments.',
+    ],
+    businessProblem:
+      'An on-demand marketplace lives on availability and speed — slow deployments and infrastructure overhead directly cost bookings.',
+    approach: [
+      { title: 'Auto-Scaling Frontends', detail: 'Customer, photographer and admin portals on App Engine with native auto-scaling.' },
+      { title: 'Managed Data Core', detail: 'Cloud SQL MySQL privately exposed; Cloud Storage for media; Secret Manager keeps secrets out of the codebase.' },
+      { title: 'Real-Time Layer', detail: 'Socket.IO and Firebase power live communication between customers and photographers.' },
+      { title: 'Automated Delivery', detail: 'GitHub Actions CI/CD; Nginx and PM2 on Compute Engine; VPC Connector for private access.' },
+    ],
+    solution:
+      'A production-ready GCP platform: three portals on App Engine with native auto-scaling, a Compute Engine backend behind Nginx and PM2, Cloud SQL MySQL reachable only through a VPC Connector, media in Cloud Storage, secrets in Secret Manager, real-time communication via Socket.IO and Firebase, and GitHub Actions automating every deployment.',
+    workflow: [
+      { step: '01', label: 'Customer · photographer · admin portals' },
+      { step: '02', label: 'App Engine — native auto-scaling' },
+      { step: '03', label: 'Socket.IO + Firebase real-time' },
+      { step: '04', label: 'Compute Engine API — Nginx · PM2' },
+      { step: '05', label: 'Cloud SQL MySQL (private) + Cloud Storage' },
+    ],
+    technologies: ['App Engine', 'Compute Engine', 'Cloud SQL MySQL', 'Cloud Storage', 'Secret Manager', 'Firebase', 'VPC Connector', 'GitHub Actions', 'Nginx', 'PM2', 'Socket.IO'],
+    outcomes: [
+      { value: '~60%', label: 'Infrastructure cost savings versus the multi-VM approach' },
+      { value: '3–5 min', label: 'Backend deployment time' },
+      { value: '2–3 min', label: 'Frontend deployment time' },
+      { value: '99.9%+', label: 'Uptime' },
+    ],
+    outcomeNote:
+      'Private database exposure, zero secrets in the codebase, and native App Engine auto-scaling — all delivered through automated GitHub Actions deployments.',
+    keyTakeaway:
+      'Three portals, one private data core, deployments in minutes — at roughly 60% of the multi-VM cost.',
+    tags: ['GCP', 'App Engine', 'Cloud SQL', 'Socket.IO'],
+    metaDescription:
+      'KliqShot: production-ready GCP infrastructure for an on-demand photography marketplace — ~60% cost savings, 3–5 minute deployments, 99.9%+ uptime.',
+  },
+  {
+    slug: 'gomindz-aws-ecommerce-infrastructure',
+    title: 'Production-Ready AWS Infrastructure for an E-Commerce Eyewear Marketplace',
+    shortName: 'GoMindz',
+    client: 'GoMindz (Lincoln Eyewear)',
+    industry: 'E-Commerce',
+    categories: ['CLOUD'],
+    featured: false,
+    layout: 'split',
+    motif: 'ecommerce',
+    metric: { value: '~$87–95', label: 'per month infrastructure design' },
+    shortDescription:
+      'A secure, production-oriented AWS foundation for an AR-powered eyewear marketplace — virtual try-on, 3D product visualization and intelligent prescription management — designed within ~$100/month.',
+    challenge: [
+      'Immersive commerce: AR-powered virtual try-on and 3D product visualization.',
+      'Intelligent prescription management for eyewear customers.',
+      'Three surfaces to serve: customer website, admin dashboard and backend API.',
+      'Production-grade security on a startup budget — an approximately $100/month target.',
+    ],
+    businessProblem:
+      'Lincoln Eyewear needed infrastructure that could carry AR try-on and prescription workflows securely — without enterprise-sized infrastructure spend.',
+    approach: [
+      { title: 'Multi-Tier VPC', detail: 'Public edge, private application subnets, private data tier — the database never touches the internet.' },
+      { title: '10-Layer Security Model', detail: 'AWS WAF, SSM Parameter Store, least-privilege IAM and zero SSH access — all operations through Systems Manager.' },
+      { title: 'Infrastructure as Code', detail: 'Every resource defined in CloudFormation; GitHub Actions automates deployment.' },
+      { title: 'Immersive Delivery', detail: 'Amplify serves the storefront; CloudFront and S3 deliver 3D and try-on assets; EC2 runs the backend API; RDS MySQL holds the data.' },
+    ],
+    solution:
+      'A complete AWS environment for the eyewear marketplace: Amplify-hosted customer website, EC2 backend API in private subnets, RDS MySQL, S3 with CloudFront for AR/3D assets, WAF at the edge, NAT Instance for cost-aware egress, CloudWatch observability — provisioned by CloudFormation and deployed by GitHub Actions.',
+    workflow: [
+      { step: '01', label: 'Customer — AR try-on & 3D products' },
+      { step: '02', label: 'CloudFront + AWS WAF edge' },
+      { step: '03', label: 'Amplify storefront · admin dashboard' },
+      { step: '04', label: 'EC2 backend API — private subnets' },
+      { step: '05', label: 'RDS MySQL (private) + S3 assets' },
+    ],
+    technologies: ['AWS Amplify', 'EC2', 'RDS MySQL', 'S3', 'CloudFront', 'AWS WAF', 'VPC', 'NAT Instance', 'SSM Parameter Store', 'Systems Manager', 'CloudFormation', 'GitHub Actions', 'CloudWatch'],
+    outcomes: [
+      { value: '$87–95', label: 'Total infrastructure cost per month — within the ~$100/month target' },
+      { value: '10-layer', label: 'Security model across network, access and data' },
+      { value: 'Zero SSH', label: 'All operations through AWS Systems Manager' },
+      { value: '100% IaC', label: 'Every resource defined in CloudFormation' },
+    ],
+    outcomeNote:
+      'Private subnets throughout, automated deployment architecture, and CloudWatch observability — production-oriented within an approximately $100/month budget.',
+    keyTakeaway:
+      'Immersive e-commerce — AR try-on and 3D product visualization — on infrastructure a startup can actually afford.',
+    tags: ['AWS', 'CloudFormation', 'WAF', 'AR Commerce'],
+    metaDescription:
+      'GoMindz (Lincoln Eyewear): production-ready AWS infrastructure for an AR-powered eyewear marketplace — 10-layer security, zero SSH, ~$87–95/month.',
+  },
+  {
+    slug: 'cognifai-covigilai-aws-automation',
+    title: 'Automated AWS Infrastructure for a Healthcare Pharmacovigilance Platform',
+    shortName: 'CognifAI',
+    client: 'CognifAI',
+    industry: 'Healthcare',
+    categories: ['CLOUD', 'AUTOMATION', 'HEALTHCARE'],
+    featured: false,
+    layout: 'pipeline',
+    motif: 'pipeline',
+    metric: { value: '~40%', label: 'infrastructure cost savings' },
+    shortDescription:
+      'CoVigilAI — an AI-powered pharmacovigilance platform on fully automated AWS infrastructure: Terraform-defined, deployed in minutes, HIPAA-aligned by design.',
+    challenge: [
+      'Secure, scalable infrastructure automation for AI-powered pharmacovigilance.',
+      'Heavy background processing that must scale with workload.',
+      'HIPAA-aligned encryption, auditing and access controls.',
+      'Zero infrastructure drift and zero secrets in the codebase — everything as code.',
+    ],
+    businessProblem:
+      'Drug-safety monitoring cannot wait on manual infrastructure — CognifAI needed an environment that provisions, deploys and scales itself, inside strict healthcare guardrails.',
+    approach: [
+      { title: 'Everything as Code', detail: 'Terraform defines the entire environment — zero infrastructure drift.' },
+      { title: 'Containerized Services', detail: 'ECS Fargate runs the platform and Celery workers; ECR holds images; auto-scaling responds in under 60 seconds.' },
+      { title: 'Event Flows', detail: 'Lambda, SQS and API Gateway move work through the system asynchronously.' },
+      { title: 'Automated CI/CD', detail: 'GitHub Actions takes a code change to live in about twelve minutes, with zero deployment downtime.' },
+    ],
+    solution:
+      'A fully automated AWS platform for CoVigilAI: ECS Fargate services and Celery workers, a private encrypted RDS PostgreSQL database, Lambda and SQS event processing, API Gateway, S3, ECR, Secrets Manager and a locked-down VPC — all defined in Terraform and delivered through GitHub Actions.',
+    workflow: [
+      { step: '01', label: 'Code change' },
+      { step: '02', label: 'GitHub Actions CI/CD' },
+      { step: '03', label: 'ECR → ECS Fargate + Celery workers' },
+      { step: '04', label: 'Lambda + SQS event flows' },
+      { step: '05', label: 'RDS PostgreSQL — private, encrypted' },
+    ],
+    technologies: ['ECS Fargate', 'Celery', 'RDS PostgreSQL', 'Lambda', 'SQS', 'API Gateway', 'S3', 'ECR', 'Secrets Manager', 'VPC', 'Terraform', 'GitHub Actions'],
+    outcomes: [
+      { value: '~15 min', label: 'Environment provisioning from nothing' },
+      { value: '~12 min', label: 'Code change to live deployment' },
+      { value: '<60s', label: 'Auto-scaling response' },
+      { value: '~40%', label: 'Infrastructure cost savings versus an always-on EC2 approach' },
+    ],
+    outcomeNote:
+      'Zero infrastructure drift through Terraform, zero secrets in the codebase, zero deployment downtime — with HIPAA-aligned encryption, auditing and access controls.',
+    keyTakeaway:
+      'An AI healthcare platform where a code change reaches production in twelve minutes — and infrastructure never drifts.',
+    tags: ['Terraform', 'ECS Fargate', 'Lambda', 'CI/CD'],
+    metaDescription:
+      'CognifAI CoVigilAI: automated AWS infrastructure for AI-powered pharmacovigilance — ~15 min provisioning, ~12 min deployments, ~40% cost savings, HIPAA-aligned.',
+  },
+  {
+    slug: 'digitaldocsys-aws-optimization',
+    title: 'AWS Infrastructure Optimization for a Document Intelligence Platform',
+    shortName: 'DigitalDocSys',
+    client: 'DigitalDocSys',
+    industry: 'Document Intelligence',
+    categories: ['CLOUD', 'AUTOMATION'],
+    featured: true,
+    layout: 'metrics',
+    motif: 'optimize',
+    metric: { value: '~50%', label: 'cost reduction' },
+    shortDescription:
+      'Security hardening and evidence-based right-sizing for the Intelligere, Tabula and Task Manager products — ~50% infrastructure cost reduction with zero production downtime.',
+    challenge: [
+      'Organic AWS growth had produced security debt across IAM and network configuration.',
+      'Over-provisioned instances and unused infrastructure inflated every bill.',
+      'No cost commitments — nothing reserved, nothing right-sized, no baseline for decisions.',
+    ],
+    businessProblem:
+      'The platform was paying for infrastructure it did not use and carrying security findings it could not ignore — every month of delay compounded both.',
+    approach: [
+      { title: 'Security Hardening', detail: 'IAM remediation and network security — 36 findings resolved: 14 critical, 12 high, 10 medium.' },
+      { title: 'Unused-Resource Cleanup', detail: 'Two unused instances terminated; waste removed from the estate.' },
+      { title: 'Evidence-Based Right-Sizing', detail: 'CloudWatch utilization data drove every decision — one instance right-sized, three Reserved Instances purchased.' },
+    ],
+    solution:
+      'A two-week optimization engagement: security findings remediated, unused infrastructure removed, instances right-sized on CloudWatch evidence, and Reserved Instances locking in the new baseline — all with zero production downtime.',
+    workflow: [
+      { step: '01', label: 'Audit — security findings + utilization evidence' },
+      { step: '02', label: 'IAM remediation + network hardening' },
+      { step: '03', label: 'Cleanup — unused resources terminated' },
+      { step: '04', label: 'Right-size on CloudWatch data' },
+      { step: '05', label: 'Reserved Instances — locked-in baseline' },
+    ],
+    technologies: ['AWS IAM', 'Amazon EC2', 'Amazon CloudWatch', 'Reserved Instances', 'AWS Cost Optimization', 'Network Security'],
+    outcomes: [
+      { value: '~50%', label: 'Total infrastructure cost reduction' },
+      { value: '$1,907', label: 'Saved per year — approximately $159 per month' },
+      { value: '36', label: 'Security findings resolved — 14 critical, 12 high, 10 medium' },
+      { value: '2 weeks', label: 'Implementation with zero production downtime' },
+    ],
+    outcomeNote:
+      'Two unused instances terminated, one instance right-sized, three Reserved Instances purchased — every decision backed by CloudWatch evidence.',
+    keyTakeaway:
+      'Half the cost, thirty-six security findings closed, zero downtime — in two weeks.',
+    tags: ['AWS', 'Security', 'FinOps', 'CloudWatch'],
+    metaDescription:
+      'DigitalDocSys: AWS infrastructure optimization for a document intelligence platform — ~50% cost reduction, 36 security findings resolved, zero downtime, 2 weeks.',
+  },
+];
+
+export const getCaseStudy = (slug) => CASE_STUDIES.find((c) => c.slug === slug);
+export const FEATURED_CASE = CASE_STUDIES.find((c) => c.featured);
+
+/* The four latest stories — showcased with distinct compositions on the landing page
+   and sequenced on the homepage. Order matters. */
+export const LATEST_SLUGS = [
+  'kliqshot-cloud-infrastructure',
+  'gomindz-aws-ecommerce-infrastructure',
+  'cognifai-covigilai-aws-automation',
+  'digitaldocsys-aws-optimization',
+];
+export const LATEST_CASES = LATEST_SLUGS.map(getCaseStudy);
+
+export const SELECTED_WORK = [
+  { slug: 'careops-home-health-referral-extraction', line: 'Multi-page referral packages into schema-validated patient records.' },
+  { slug: 'healthcare-document-processing-ai-ocr', line: 'Medical document processing — hours of handling to minutes.' },
+  { slug: 'digitaldocsys-aws-optimization', line: 'Security hardening and ~50% cost reduction.' },
+  { slug: 'cognifai-covigilai-aws-automation', line: 'Automated infrastructure for healthcare AI.' },
+];
+
+export const CASE_STUDIES_LANDING = {
+  kicker: 'Case Studies',
+  headlineA: 'Proof in',
+  headlineB: 'production.',
+  sub: 'Real infrastructure, real transformation, real engineering outcomes.',
+  archiveKicker: 'The archive',
+  archiveHeadline: 'Every engagement, documented.',
+};

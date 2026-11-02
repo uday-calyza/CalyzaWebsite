@@ -1,0 +1,25 @@
+{
+  "summary": "Iteration 12 verified the TRANSFORM CHOREOGRAPHY + CONVERGENCE LINE + AWS BADGE RELOCATION pass. Backend pytest 7/7 passed (root, contact valid+invalid, chat SSE fintech, multi-turn memory, honesty guard, missing session 422). Frontend Homepage: exactly 1 canvas; all chapter sections render in order (chapter-opening, chapter-ecosystem, chapter-acceleration, chapter-transform, factory-invitation, enter-factory-cta, home-closing, site-footer). AWS badges have MOVED into chapter-transform (aws-credibility container, aws-badge-advanced-tier + aws-badge-genai as tile divs with img children on ivory backing bg-[#F4F1EC] rounded-lg px-5 py-4, img h-14 md:h-[4.5rem]) and are ABSENT from chapter-acceleration (0 occurrences of aws-* testids inside it). Verified aws-credibility/aws-badge-* absent from acceleration section. CONVERGENCE LINE: [data-testid=convergence-line] renders with Ecosystem/Velocity/Intelligence labels + violet diamond point; opacity animates 0→1 as user enters transform section and fades to ~0.93 by offset 1300 (matches p→0.92 gate). SCROLL CHOREOGRAPHY: at trans_top+200..500 headline hidden (y-transform=79.2), begins rising at +600 (y=72), fully in at +700 (y≈0), badges reveal at +900 (opacity ~0.99/0.94) and settle at 1 by +1000 with 150ms stagger — matches show>0.79 / showBadges>0.84 gates. Both badge imgs load real assets: aws-advanced-tier-services-partner.png (nw=120, nh=120) and aws-generative-ai-competency.png (nw=293, nh=120). Badges stay static after entrance (transform none/no animation). Convergence line does not overflow on mobile. MOBILE 390: docWidth=winWidth=390 (no horizontal overflow), 1 canvas, both badges load (nw>0), badge tiles stack in mobile scrim column at x=64 (b1 w=56, b2 w=136 — well within 390), no cropping, milestones visible. THEMES/CROSS-ROUTE: 0 console errors across full homepage scroll roundtrip and on /ai-factory, /services, /case-studies, /contact.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "MINOR NAMING MISMATCH: review request lists velocity testids as milestone-partnership / milestone-select-tier / milestone-advanced-tier / milestone-genai-competency, but the actual code (content.js ACCELERATION_STORY.steps) uses ids partnership/select/advanced/genai — so real testids are milestone-partnership, milestone-select, milestone-advanced, milestone-genai. All 4 render fine; only the spec-vs-code testid naming differs. Consider aligning (either rename step ids to select-tier/advanced-tier/genai-competency in content.js, or update the spec)."
+  ],
+  "critical_code_review_comments": [
+    "Velocity milestone step ids in /app/frontend/src/data/content.js (line 162-167) don't match the ids called out in the review spec (short vs -tier/-competency). No functional impact but external test scripts that hardcode the spec ids will fail.",
+    "TransformChapter.jsx handles all P0 spec beats correctly (convergence line origin-right scaleX collapse, staggered badge entrance, gates at 0.79 / 0.84 / 0.94). Clean and readable — no issues."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "N/A — public marketing site",
+  "seed_data_creation": "One TEST_ contact submitted via pytest test_contact_valid (id auto). Safe to leave; prefixed TEST_.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Transform section is now the credibility hub. Canonical testids: chapter-transform (section min-h-175vh items-end), convergence-line (with Ecosystem/Velocity/Intelligence spans + violet diamond), aws-credibility (container after border-t), aws-badge-advanced-tier + aws-badge-genai are on the ivory TILE divs (img is a child — use `[data-testid=aws-badge-*] img` for naturalWidth checks). Velocity milestones use SHORT ids: milestone-partnership, milestone-select, milestone-advanced, milestone-genai (NOT -tier/-competency suffixed as review spec suggested). Choreography gates: show headline p>0.79 && p<0.94, showBadges p>0.84 && p<0.94, convergence-line opacity 0→1 at 0.66-0.69, holds, fades at 0.9-0.92. #transition offsetTop was 5076 desktop / 3967 mobile — reveal plays roughly offset +700 through +1300. Use ~200-400px scroll steps. ProofSection testid is 'proof-section' (not 'proof' as listed in review). No console errors on any route. Backend contact API requires 'message' field, not 'needs'.",
+  "rca of the issue": "N/A — no regressions found. Only minor naming inconsistency between review spec and code for milestone testids."
+}

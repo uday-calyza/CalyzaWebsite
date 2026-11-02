@@ -1,0 +1,164 @@
+{
+  "theme": "light",
+  "typography": {
+    "fonts": {
+      "headings": "Fraunces, serif",
+      "body": "Inter, sans-serif"
+    },
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl lg:text-7xl font-light tracking-tighter leading-none",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight",
+      "h3": "text-xl sm:text-2xl font-light",
+      "body": "text-base leading-relaxed",
+      "labels": "text-xs tracking-[0.2em] uppercase"
+    },
+    "rules": [
+      "Use Fraunces (refined editorial serif) for display and headings.",
+      "Use Inter for UI and body copy. Keep it restrained.",
+      "Typography outside the crystal must be used sparingly.",
+      "Use light weights for elegance and impact, avoiding default bolds."
+    ]
+  },
+  "colors": {
+    "background": {
+      "primary": "#FAF9F6",
+      "secondary": "#F3EFFF"
+    },
+    "brand": {
+      "core": "#4B0082",
+      "secondary": "#0055FF",
+      "energy": "#00FFD1",
+      "refraction": "#FFB6C1",
+      "depth": "#36013F"
+    },
+    "text": {
+      "primary": "#1A1A1A",
+      "secondary": "#4A4A4A",
+      "inverse": "#FFFFFF"
+    },
+    "rules": [
+      "Primary environment is warm ivory / near-white lavender.",
+      "NO giant gradients across sections. Color is introduced through crystal refraction, lighting, and controlled accents.",
+      "Each of the 4 industries in AI Factory gets a subtle color identity within the Calyza palette."
+    ]
+  },
+  "visual_enhancers": {
+    "surfaces": [
+      "Use 'Crystal Glass' for the header if sticky, requiring backdrop-blur-xl, border-white/20, and saturate-150.",
+      "Avoid muddy gray transparency.",
+      "Use sharp or maximally 8px border-radius for minimal, refined geometry."
+    ],
+    "shadows": [
+      "Ambient, diffuse shadows only. Avoid harsh box-shadows."
+    ]
+  },
+  "components": {
+    "architecture": [
+      "CrystalScene",
+      "CrystalObject",
+      "CrystalFallback",
+      "CrystalController",
+      "CrystalScrollProgress",
+      "CrystalChapter",
+      "AIFactoryPreview",
+      "IndustryPanel",
+      "Navigation"
+    ],
+    "rules": [
+      "Navigation is minimal: Home, Services, AI Factory, Case Studies, Contact. CTA is 'Enter AI Factory'. Visually quiet.",
+      "Keep data separate from presentation."
+    ]
+  },
+  "grids": {
+    "bento_mode": "TETRIS",
+    "rules": [
+      "Use extreme asymmetry and wide gaps (gap-8 to gap-12).",
+      "Allow substantial negative space, letting the central crystal dominate.",
+      "Ensure grid items are direct children of grid containers."
+    ]
+  },
+  "layouts": {
+    "strategy": [
+      "The entire homepage is built around a central interactive crystal.",
+      "Numbered manifesto chapters with one slow editorial marquee.",
+      "Scroll states: 01 pure crystal/origin, 02 expanding, 03 internal layers visible, 04 ecosystem structure emerges, 05 acceleration/capability emerges, 06 transforms toward AI Factory.",
+      "Mobile: Crystal central, reduced-motion support."
+    ]
+  },
+  "motion": {
+    "libraries": [
+      "framer-motion",
+      "lenis"
+    ],
+    "rules": [
+      "Premium, scroll-driven crystal transformation is the primary motion.",
+      "Use Lenis for smooth momentum scrolling.",
+      "Framer-motion for section reveals + micro-interactions.",
+      "Subtle cursor response.",
+      "AVOID particle explosions, excessive bloom, neon, and bouncing.",
+      "Must support prefers-reduced-motion."
+    ]
+  },
+  "accessibility": {
+    "contrast": "Maintain APCA / WCAG AA minimum 4.5:1 for body text.",
+    "testing": "All interactive and key informational elements MUST include a data-testid attribute (e.g., data-testid='enter-factory-btn')."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "category": "Healthcare Industry",
+        "url": "https://images.unsplash.com/photo-1719934398679-d764c1410770?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlJTIwYWJzdHJhY3QlMjBtb2Rlcm58ZW58MHx8fHwxNzg2NjE0NDAxfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Modern abstract healthcare setting"
+      },
+      {
+        "category": "FinTech Industry",
+        "url": "https://images.unsplash.com/photo-1728044849347-ea6ff59d98dd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHwzfHxmaW50ZWNoJTIwbW9kZXJufGVufDB8fHx8MTc4NDI0OTYzNnww&ixlib=rb-4.1.0&q=85",
+        "description": "Modern FinTech interaction"
+      },
+      {
+        "category": "Education Industry",
+        "url": "https://images.unsplash.com/photo-1615406020658-6c4b805f1f30?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBidWlsZGluZyUyMG1vZGVybiUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODMwOTgzNzB8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Modern educational architecture"
+      },
+      {
+        "category": "Hospitality Industry",
+        "url": "https://images.unsplash.com/photo-1720540244592-b4124532b318?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMGludGVyaW9yJTIwaG9zcGl0YWxpdHl8ZW58MHx8fHwxNzg2NjE0NDAxfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Luxury hospitality interior"
+      }
+    ]
+  },
+  "3d_libraries": {
+    "primary": "@react-three/fiber, three, @react-three/drei",
+    "implementation": [
+      "Procedural geometry crystal. Circular overall form, faceted internal structure.",
+      "Transparent/translucent optical material, polished architectural finish, realistic depth, subtle refraction, premium studio lighting.",
+      "NOT rough quartz, NOT diamond jewelry, NOT star, NOT generic glowing sphere, NOT AI orb.",
+      "Lazy 3D initialization. Provide immediate CSS/SVG crystal fallback.",
+      "Pause rendering when offscreen for performance."
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Build an Awwwards Site-of-the-Day level experiential site.",
+    "Implement the crystal using React Three Fiber. Base it on a scroll-driven timeline.",
+    "Ensure the crystal transforms: expands like an atom, separates into layers, reveals internal geometry, smoothly and reversibly.",
+    "Organize narrative into chapters: ORIGIN, ECOSYSTEM, ACCELERATION, AI FACTORY.",
+    "AI Factory industries: Healthcare, FinTech, Education, Hospitality. (NO Manufacturing, NO Retail).",
+    "Tagline: 'AI Factory \u2014 Industry-ready intelligence, built to deploy.'",
+    "Never use generic AI/SaaS templates. No standard hero or repeated card grids.",
+    "Include a kinetic hero with signature on-load masked line-by-line reveal.",
+    "DO NOT use a transparent background in headers without blur. Apply Glassmorphism rules correctly.",
+    "DO NOT output placeholder text for images; use the provided Unsplash URLs."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid the 'AI slop' aesthetic. Make creative, distinctive frontends.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition (e.g., transition: all). Add transitions to specific properties.",
+    "You MUST NOT center align the app container (.App { text-align: center; }).",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "NEVER use AI assistant Emoji characters like \ud83e\udd16\ud83e\udde0\ud83d\udcad\ud83d\udca1\ud83d\udd2e\ud83c\udfaf for icons.",
+    "Missing categories = main agent will use placeholder text which is FORBIDDEN."
+  ]
+}

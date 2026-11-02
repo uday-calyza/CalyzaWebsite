@@ -1,0 +1,28 @@
+{
+  "summary": "Full re-QA of CalyzaTech unified theme system + redesigned /ai-factory and /contact + full light/dark/mobile pass. Backend: 7/7 pytest (root, contact valid/invalid, chat SSE fintech, multi-turn memory, honest-no-fabrication, missing-session) — all green. Chat SSE curl {session_id:'qa-1',message:'hi'} streams deltas and terminates with [DONE] as expected. Frontend: theme-toggle flips document.documentElement class 'dark' on all 5 routes and persists across reload on /contact. body bg switches to rgb(16,8,23) on /services, /ai-factory, /case-studies, /contact and to /home hero canvas dark bg in dark mode (rgb(250,249,255) in light). Zero JS console errors across all routes and interactions. AI Factory redesign verified: what-is hero → Discover/Design/Deploy/Scale grid → industries-section with all 4 selector-{healthcare|fintech|education|hospitality} testids, factory-bands-desktop AND factory-bands-mobile both mount, factory-band-cta-{industry} appears on commit; hover fintech expands, click education commits (CTA visible), deep-link /ai-factory?industry=hospitality opens with hospitality CTA visible. No horizontal overflow at 1440/820/390. Contact: contact-hero-cta + contact-hero-secondary present, empty submit yields all 5 per-field errors (contact-error-name/email/industry/message/timeline) with correct messages, valid submit shows contact-success block. Chatbot: chat-toggle opens chat-panel, streamed GPT-5.4 reply for healthcare returns 650+ chars including workflow/oversight vocabulary, chat-action-explore-healthcare-ai + chat-action-book-an-ai-strategy-call chips render. Mobile 390px: mobile-menu-button opens full-screen menu with all links + Enter AI Factory CTA, industry bands become vertical accordion (factory-bands-mobile visible), no horizontal overflow. Tablet 820px /ai-factory: no overflow. Theme persistence on /contact reload = OK.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "global (light mode)", "issues": ["Cyan-teal accent (--accent-tertiary #27C7D9) used for small uppercase eyebrow labels ('CONTACT', 'WHAT IS AI FACTORY?', 'THE FOUR PATHS', 'HOW WE DEPLOY', 'STATE 03 — ECOSYSTEM', 'One factory.', 'healthcare.') on light #FAF9FF bg yields contrast ratio ~1.96 — fails WCAG AA (needs 4.5). Visible but low-legibility. Consider darkening the teal or switching eyebrow color to --accent-primary #5B1DB8 (plum ~7.2 contrast) in light theme only."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "OPTIONAL/DESIGN: darken --accent-tertiary or swap eyebrow color to --accent-primary in light theme to meet WCAG AA on small uppercase labels."
+  ],
+  "critical_code_review_comments": [
+    "Homepage body bg on `/` may briefly appear stuck at light on the very first tick after theme toggle (observed once, unreproducible on second run) — likely a benign transition/reflow race with the Lenis wrapper. Not user-visible; safe to ignore.",
+    "Server: chat_sessions still an in-memory dict (single-process only) — acceptable for MVP.",
+    "Server: ContactMessageCreate.email is plain str with min_length=3 — 'a@b' would pass. Consider EmailStr for real format validation. (Carried over from iter_1.)"
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "N/A - no auth",
+  "seed_data_creation": "Contact form insert creates one 'TEST User' row in db.contact_messages (from pytest + one from UI QA). Safe to leave.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Theme system fully working. All testids preserved from iter_1 plus new AI Factory ones: industries-section, factory-bands-desktop, factory-bands-mobile, selector-{industry}, selector-mobile-{industry}, factory-band-cta-{industry}. Contact hero adds contact-hero-cta, contact-hero-secondary. Mobile menu button testid: mobile-menu-button. Submit button now labeled 'SEND MESSAGE' (uppercase, textid contact-submit-button). Deep-link ?industry=<slug> works on /ai-factory. Only cosmetic concern is teal-on-ivory eyebrow contrast in light mode.",
+  "rca of the issue": "N/A — no functional bugs. Contrast issue is a WCAG concern with the brand-defined accent-tertiary token; requires design decision, not a code bug."
+}

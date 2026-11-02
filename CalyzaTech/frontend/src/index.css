@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+   CALYZA UNIFIED THEME — single source of truth.
+   BLACK + OFF-WHITE + PEACH identity (dark), warm paper translation (light).
+   The crystal keeps its internal refraction colors — it is the signature.
+   Every component consumes these tokens; no component hard-codes colors.
+   ===================================================================== */
+@layer base {
+    :root {
+        /* surfaces — warm paper */
+        --background: 247 245 242; /* #F7F5F2 */
+        --background-elevated: 255 255 255; /* #FFFFFF */
+        --background-subtle: 239 235 230; /* warm tint */
+        --surface: 255 255 255; /* #FFFFFF */
+        --surface-elevated: 242 239 234;
+        --surface-hover: 239 235 229;
+
+        /* text */
+        --text-primary: 17 17 17; /* #111111 */
+        --text-secondary: 102 97 91; /* #66615B */
+        --text-muted: 140 134 127;
+        --text-inverse: 245 242 238; /* #F5F2EE off-white, on dark sections */
+
+        /* borders */
+        --border: 17 17 17;
+        --border-a: 0.1;
+        --border-a-sub: 0.06;
+        --border-a-strong: 0.18;
+
+        /* violet accent system */
+        --accent-primary: 91 29 184; /* #5B1DB8 Calyza violet */
+        --accent-secondary: 74 24 153; /* #4A1899 — text-grade deep violet (AA) */
+        --accent-tertiary: 91 29 184;
+        --accent-wash: 235 227 250; /* soft violet wash */
+
+        /* buttons */
+        --button-primary: 91 29 184;
+        --button-primary-hover: 74 24 153;
+        --button-primary-text: 245 242 238;
+        --button-secondary: 255 255 255;
+
+        /* inputs */
+        --input-background: 255 255 255;
+        --input-focus: 91 29 184;
+
+        /* status */
+        --success: 63 138 102;
+        --error: 192 74 64;
+        --warning: 176 128 40;
+
+        /* themed media overlays + ambient drift + brand gradient */
+        --panel-overlay: linear-gradient(to top, rgba(247, 245, 242, 0.94), rgba(247, 245, 242, 0.3));
+        --panel-overlay-dim: linear-gradient(to top, rgba(247, 245, 242, 0.94), rgba(247, 245, 242, 0.55));
+        --drift-bg: radial-gradient(40% 35% at 25% 20%, rgba(91, 29, 184, 0.1), transparent 70%),
+            radial-gradient(35% 30% at 80% 30%, rgba(74, 24, 153, 0.07), transparent 70%),
+            radial-gradient(30% 30% at 60% 85%, rgba(17, 17, 17, 0.03), transparent 70%);
+        --spectral: linear-gradient(115deg, #4a1899, #5b1db8, #9a62f5);
+        --cta-spectral: linear-gradient(115deg, #5b1db8, #4169ff, #27c7d9);
+        --logo-chip: 255 255 255;
+
+        /* shadcn bridge */
+        --background-hsl: 40 20% 97%;
+        --foreground: 0 0% 10%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 10%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 10%;
+        --primary: 24 64% 45%;
+        --primary-foreground: 40 20% 97%;
+        --secondary: 30 10% 96%;
+        --secondary-foreground: 24 64% 45%;
+        --muted: 30 8% 94%;
+        --muted-foreground: 0 0% 29%;
+        --accent: 24 60% 96%;
+        --accent-foreground: 24 64% 45%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border-hsl: 30 10% 88%;
+        --input: 30 10% 85%;
+        --ring: 24 64% 45%;
+        --radius: 0.25rem;
+    }
+
+    .dark {
+        /* surfaces — pure black system */
+        --background: 5 5 5; /* #050505 */
+        --background-elevated: 11 11 11; /* #0B0B0B */
+        --background-subtle: 11 11 11;
+        --surface: 16 16 16; /* #101010 */
+        --surface-elevated: 21 21 21; /* #151515 */
+        --surface-hover: 26 26 26;
+
+        /* text */
+        --text-primary: 245 242 238; /* #F5F2EE */
+        --text-secondary: 166 161 155; /* #A6A19B */
+        --text-muted: 128 123 117;
+        --text-inverse: 17 17 17;
+
+        /* borders */
+        --border: 245 242 238;
+        --border-a: 0.12;
+        --border-a-sub: 0.07;
+        --border-a-strong: 0.22;
+
+        /* violet accent system — luminous on black */
+        --accent-primary: 154 98 245; /* #9A62F5 */
+        --accent-secondary: 183 140 255; /* #B78CFF */
+        --accent-tertiary: 154 98 245;
+        --accent-wash: 36 23 51; /* subtle dark violet */
+
+        /* buttons */
+        --button-primary: 154 98 245;
+        --button-primary-hover: 183 140 255;
+        --button-primary-text: 21 18 15;
+        --button-secondary: 21 21 21;
+
+        /* inputs */
+        --input-background: 16 16 16;
+        --input-focus: 154 98 245;
+
+        /* status */
+        --success: 127 207 164;
+        --error: 224 138 126;
+        --warning: 224 185 106;
+
+        /* themed media overlays + ambient drift + brand gradient */
+        --panel-overlay: linear-gradient(to top, rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.35));
+        --panel-overlay-dim: linear-gradient(to top, rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.6));
+        --drift-bg: radial-gradient(40% 35% at 25% 20%, rgba(154, 98, 245, 0.09), transparent 70%),
+            radial-gradient(35% 30% at 80% 30%, rgba(183, 140, 255, 0.05), transparent 70%),
+            radial-gradient(30% 30% at 60% 85%, rgba(36, 23, 51, 0.4), transparent 70%);
+        --spectral: linear-gradient(115deg, #5b1db8, #9a62f5, #b78cff);
+        --cta-spectral: linear-gradient(115deg, #9a62f5, #6480ff, #35d4e1);
+        --logo-chip: 245 242 238;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+    body {
+        @apply bg-t-bg font-body text-t-fg;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+        background: rgb(var(--accent-primary));
+        color: rgb(var(--button-primary-text));
+    }
+    [data-debug-wrapper='true'] {
+        display: contents !important;
+    }
+}
+
+html,
+body {
+    transition: background-color 0.5s ease;
+}
+
+/* ---------- Calyza signature utilities ---------- */
+
+.text-outline {
+    -webkit-text-stroke: 1px rgb(var(--text-primary) / 0.28);
+    color: transparent;
+}
+
+/* Pause every CSS animation inside an offscreen subtree (toggled via IntersectionObserver) */
+.anim-off,
+.anim-off * {
+    animation-play-state: paused !important;
+}
+
+@keyframes marquee-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+    animation: marquee-drift 72s linear infinite;
+}
+
+.cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+}
+
+@keyframes crystal-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.crystal-spin {
+    animation: crystal-spin 48s linear infinite;
+    transform-origin: center;
+}
+
+.crystal-spin-reverse {
+    animation: crystal-spin 72s linear infinite reverse;
+    transform-origin: center;
+}
+
+@keyframes scroll-cue-drop {
+    0% { transform: translateY(-100%); }
+    55% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+}
+
+.scroll-cue-dot {
+    animation: scroll-cue-drop 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes drift {
+    0% { transform: translate3d(-4%, -3%, 0) scale(1); }
+    50% { transform: translate3d(4%, 3%, 0) scale(1.06); }
+    100% { transform: translate3d(-4%, -3%, 0) scale(1); }
+}
+
+.drift-layer {
+    animation: drift 26s ease-in-out infinite;
+    will-change: transform;
+    background: var(--drift-bg);
+}
+
+@keyframes possibility-breathe {
+    0% { font-variation-settings: 'wght' 300; opacity: 0.5; }
+    100% { font-variation-settings: 'wght' 500; opacity: 1; }
+}
+
+.possibility-breathe {
+    animation: possibility-breathe 2.8s cubic-bezier(0.16, 1, 0.3, 1) 1.7s forwards;
+}
+
+@keyframes rail-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.6); }
+}
+
+.rail-pulse {
+    animation: rail-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.float-slow {
+    animation: float-slow 7s ease-in-out infinite;
+}
+
+/* Case-study editorial helpers */
+@keyframes line-grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.peach-line {
+    transform-origin: left;
+    animation: line-grow 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    background: var(--spectral);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .factory-dot {
+        display: none;
+    }
+    .marquee-track,
+    .crystal-spin,
+    .crystal-spin-reverse,
+    .scroll-cue-dot,
+    .drift-layer,
+    .possibility-breathe,
+    .rail-pulse,
+    .float-slow,
+    .peach-line {
+        animation: none !important;
+    }
+}

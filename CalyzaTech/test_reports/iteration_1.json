@@ -1,0 +1,33 @@
+{
+  "summary": "Full E2E testing of CalyzaTech website. Backend: 7/7 pytest tests pass (root, contact valid/invalid, chat streaming for FinTech content, multi-turn memory, honest no-fabrication answer, missing session validation). Frontend: home scroll roundtrip smooth with no runtime errors; only benign WebGL/THREE deprecation warnings. Theme toggle flips body bg on all 5 pages (/, /services, /ai-factory, /case-studies, /contact) — /ai-factory and /contact keep their dark plum surfaces in both themes by design. Chat streams real GPT-5.4 replies, produces action chips, chip click navigates to /ai-factory?industry=fintech, multi-turn memory retained. Contact form shows all 5 per-field errors on empty submit and displays contact-success block on valid submission. AI Factory selector chips (healthcare/fintech/education/hospitality) all clickable; deploy steps read Discover/Design/Deploy/Scale as required. Case Studies show 4 industries with 'CASE STUDY DETAILS COMING SOON' pills and — placeholders (intentional).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "global", "issues": ["Console warning: 'Please ensure that the container has a non-static position, like relative/fixed/absolute to ensure scroll offset is calculated correctly' — Framer Motion useScroll target likely lacks a positioned ancestor. Not user-visible but should be fixed."]},
+      {"screen": "global", "issues": ["THREE.Clock deprecation warning (THREE r168+): switch to THREE.Timer at some point — cosmetic."]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Optional: fix Framer Motion 'non-static position' warning by adding position:relative to the scroll container.",
+    "Optional: replace THREE.Clock with THREE.Timer to silence deprecation warning."
+  ],
+  "critical_code_review_comments": [
+    "server.py: chat_sessions is an in-memory dict — will be lost on backend restart and won't scale across workers. Fine for single-instance MVP but worth noting.",
+    "server.py: ContactMessageCreate.email is a plain str with min_length=3; no format validation. Consider EmailStr from pydantic for a real email check (currently 'a@b' would pass).",
+    "server.py: CORS allow_origins uses '*' with allow_credentials=True — browsers ignore credentials with wildcard; not a functional bug but misleading config.",
+    "server.py: LlmChat model configured as ('openai', 'gpt-5.4') — verify this model id is valid for the Emergent universal key; tests confirm it responds, so OK."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "None; contact form insert leaves TEST_ record with name 'TEST User' in db.contact_messages — safe to leave.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Contact form testids use suffixes -input/-select/-button (contact-name-input, contact-email-input, contact-industry-select, contact-message-input, contact-timeline-select, contact-submit-button). Error testids match the spec: contact-error-{name|email|industry|message|timeline}. Chat testids: chat-toggle, chat-input, chat-send, chat-panel, chat-action-{slug}. AI Factory: selector-{healthcare|fintech|education|hospitality}, deploy-step-0{1..4}. Case studies: case-status-{industry}. Backend chat endpoint requires POST /api/chat with {session_id, message}; response is SSE with 'data: {\"delta\":...}' and terminates with 'data: [DONE]'.",
+  "rca of the issue": "N/A — no bugs surfaced. Scroll lag fix appears to be effective: no jank, no memory-leak console errors, only benign WebGL performance messages (GPU stall on ReadPixels during screenshot capture, expected)."
+}

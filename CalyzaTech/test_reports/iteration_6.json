@@ -1,0 +1,17 @@
+{
+  "summary": "Iteration 6 — CalyzaTech content-completion + Assemble interaction verification. Backend pytest 7/7 passing. Frontend fully verified: (1) All four new case study detail pages load with exact source facts — KliqShot (~60% + 99.9%+ uptime + 3-5min backend/2-3min frontend), GoMindz ($87-95/month, 10-layer security, NO % savings claim anywhere), CognifAI (~40%, HIPAA-aligned wording only — no 'certified'/'compliant' anywhere), DigitalDocSys (~50%, 36 findings with 14 critical / 12 high / 10 medium exactly, $1,907/yr ~$159/mo, 2 weeks zero downtime). (2) /case-studies landing: hero reads 'Proof in production.' exactly; featured-case testid present with DigitalDocSys featured (4 metric cells via featured-metrics testid); 3 latest StoryFeatures for KliqShot/GoMindz/CognifAI with distinct layouts (architecture/split/pipeline); archive grid with filter bar (8 filters) below. (3) Homepage Selected Work: 4 case-study links, all metrics present (~60%, $87, ~40%, ~50%), non-comparability note rendered. (4) AssembleIntelligence: present on both homepage (with 'Ready to deploy?' CTA) and /ai-factory (NO CTA — correct). All 4 industry testids (assembly-industry-{healthcare,fintech,education,hospitality}) + 3 layer testids (assembly-layer-{understand,decide,execute}) render. Fintech execute correctly shows 'KYC automation / Fraud workflows / Lending assistance'; Hospitality execute has all 4 items incl. 'Personalized Guest Experience'. Mobile 390px: no overflow. (5) AI Factory page order verified via bounding-box Y positions: hero (176) → assemble (630) → industries (1548) → deploy (2449) → architecture (2914). Exactly 4 industries. (6) Regression: 0 page errors, 0 real console errors, contact form renders, all core routes load, crystal intact.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/iter6.xml"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Content-integrity requirement fully met: no invented metrics, no merged statistics, HIPAA wording strictly 'aligned' (never 'certified'/'compliant'), GoMindz carries zero percent-savings claim as specified.",
+    "Minor observation: FEATURED_CASE block on /case-studies displays industry + title + tags but does not explicitly render the client name 'DigitalDocSys' inline. Client is shown on the detail page. Non-blocking."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Iter 6 green across content + interaction pass. All 4 new case studies (KliqShot, GoMindz, CognifAI, DigitalDocSys) match source facts exactly; HIPAA wording is 'aligned' only; GoMindz has no percent-savings claim. AssembleIntelligence works on both homepage (with CTA) and /ai-factory (no CTA) with correct per-industry crossfades. AI Factory page order: hero → assemble → industries → deploy → architecture. Archive filter intentionally filters only 6 older studies. Backend 7/7."
+}

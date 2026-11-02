@@ -1,0 +1,161 @@
+/* =====================================================================
+   SERVICES UNIVERSE — six capability families, each with a dedicated page.
+   `visual` drives the per-page interactive system (stack | map | pipeline |
+   canvas | context | pod). The index at /services is a typographic directory.
+   ===================================================================== */
+
+export const SERVICE_FAMILIES = [
+  {
+    id: 'ai',
+    number: '01',
+    name: 'AI',
+    tagline: 'Intelligent systems that automate and decide.',
+    hero: 'Build intelligent systems that automate processes, enhance decision-making, and create new ways for businesses to engage with customers, employees, and data.',
+    description:
+      'Build intelligent solutions that automate processes, enhance decision-making, and create new ways for businesses to engage with customers, employees, and data.',
+    visual: 'stack',
+    visualLabel: 'The intelligence stack',
+    stack: ['Experience', 'Agents', 'Models', 'Foundation'],
+    accent: ['#5B1DB8', '#4169FF'],
+    subs: [
+      { name: 'Generative AI', detail: 'Develop AI-powered applications that generate, understand, and transform text, images, documents and other business content.', stack: ['Models', 'Experience'] },
+      { name: 'AI Agents & Agentic AI', detail: 'Build autonomous AI agents that reason, use tools, make decisions and execute multi-step workflows.', stack: ['Agents', 'Models'] },
+      { name: 'AI/ML', detail: 'Develop machine learning solutions that identify patterns, predict outcomes and solve complex business problems.', stack: ['Models', 'Foundation'] },
+      { name: 'AI Automation', detail: 'Automate repetitive and decision-driven workflows using AI to improve efficiency, accuracy and productivity.', stack: ['Agents', 'Experience'] },
+      { name: 'AI Consulting & Strategy', detail: 'Identify high-value AI opportunities and create practical strategies for adoption, implementation and scaling.', stack: ['Foundation', 'Experience'] },
+      { name: 'Intelligent Document Processing', detail: 'Extract, classify, understand and process business information from invoices, forms, contracts, reports and other documents.', stack: ['Models', 'Agents'] },
+    ],
+  },
+  {
+    id: 'cloud',
+    number: '02',
+    name: 'Cloud',
+    tagline: 'Secure, scalable infrastructure foundations.',
+    hero: 'Design, migrate, modernize and optimize secure and scalable cloud environments.',
+    description:
+      'Design, migrate, modernize, and optimize secure and scalable cloud environments that support business growth and digital transformation.',
+    visual: 'map',
+    visualLabel: 'The architecture map',
+    nodes: ['Applications', 'Compute', 'Data', 'Network', 'Security', 'Delivery'],
+    accent: ['#4169FF', '#27C7D9'],
+    subs: [
+      { name: 'Cloud Consulting', detail: 'Architecture decisions made deliberately, before money is spent.', nodes: ['Applications', 'Security'] },
+      { name: 'Cloud Migration', detail: 'Workload moves planned for zero-surprise cutovers.', nodes: ['Compute', 'Network'] },
+      { name: 'Cloud Modernization', detail: 'Legacy estates re-platformed for elasticity and speed.', nodes: ['Applications', 'Compute'] },
+      { name: 'Cloud Infrastructure', detail: 'Secure, multi-AZ foundations on Well-Architected principles.', nodes: ['Compute', 'Network', 'Data'] },
+      { name: 'Cloud Optimization & FinOps', detail: 'Spend visibility and continuous right-sizing.', nodes: ['Compute', 'Data'] },
+      { name: 'Managed Cloud Services', detail: 'Operations, monitoring and incident response — handled.', nodes: ['Security', 'Delivery'] },
+      { name: 'DevOps & CI/CD', detail: 'Pipelines that ship safely, repeatedly and fast.', nodes: ['Delivery'] },
+    ],
+  },
+  {
+    id: 'data',
+    number: '03',
+    name: 'Data',
+    tagline: 'Reliable pipelines to trusted insight.',
+    hero: 'Turn complex and distributed data into reliable, accessible and actionable intelligence.',
+    description:
+      'Turn complex and distributed data into reliable, accessible, and actionable insights that support better business decisions and AI initiatives.',
+    visual: 'pipeline',
+    visualLabel: 'The data pipeline',
+    stages: ['Source', 'Transform', 'Store', 'Understand', 'Act'],
+    accent: ['#27C7D9', '#67D8B0'],
+    subs: [
+      { name: 'Data Engineering', detail: 'Pipelines that move data reliably from source to use.', stages: ['Source', 'Transform'] },
+      { name: 'Data Modernization', detail: 'From legacy stores to lakehouse-scale platforms.', stages: ['Transform', 'Store'] },
+      { name: 'Data Warehousing', detail: 'Structured, governed homes for analytical data.', stages: ['Store'] },
+      { name: 'Data Analytics & BI', detail: 'Dashboards and metrics your teams actually trust.', stages: ['Understand'] },
+      { name: 'Data Visualization', detail: 'Complex signals rendered into clear decisions.', stages: ['Understand', 'Act'] },
+      { name: 'Data Platforms', detail: 'The foundation AI initiatives are built on.', stages: ['Store'] },
+      { name: 'Machine Learning & Data Science', detail: 'From experiments to models in production.', stages: ['Act'] },
+    ],
+  },
+  {
+    id: 'custom-software',
+    number: '04',
+    name: 'Custom Software',
+    tagline: 'Products and platforms built to fit.',
+    hero: 'Software designed around the way your business actually works.',
+    description:
+      'Design and develop scalable software solutions tailored to specific business requirements, workflows, and customer experiences.',
+    visual: 'canvas',
+    visualLabel: 'The application canvas',
+    modules: ['Experience', 'API', 'Auth', 'Data', 'Search', 'Notify', 'Admin', 'Integrations'],
+    accent: ['#5B1DB8', '#7438D3'],
+    subs: [
+      { name: 'Custom Software Development', detail: 'Systems shaped around your workflows, not the other way around.', modules: ['Experience', 'API', 'Data'] },
+      { name: 'Web Application Development', detail: 'Fast, resilient web applications with editorial-grade UX.', modules: ['Experience', 'API'] },
+      { name: 'Mobile Application Development', detail: 'Native-quality experiences on every device.', modules: ['Experience', 'Notify'] },
+      { name: 'Application Modernization', detail: 'Aging applications rebuilt without stopping the business.', modules: ['API', 'Data', 'Integrations'] },
+      { name: 'API & System Integration', detail: 'Systems that speak to each other cleanly.', modules: ['API', 'Integrations'] },
+      { name: 'Cloud-Native Application Development', detail: 'Built for scale from the first commit.', modules: ['API', 'Data', 'Notify'] },
+      { name: 'Enterprise Software', detail: 'The operational backbone, engineered properly.', modules: ['Admin', 'Auth', 'Data'] },
+      { name: 'SaaS Development', detail: 'Multi-tenant products designed to grow.', modules: ['Auth', 'Admin', 'API'] },
+      { name: 'White-label Products Development', detail: 'Your brand, our engineering.', modules: ['Experience', 'Admin'] },
+    ],
+  },
+  {
+    id: 'industry',
+    number: '05',
+    name: 'Industry',
+    tagline: 'Domain-tuned technology for real sectors.',
+    hero: 'Technology becomes powerful when it understands the context it operates in.',
+    description:
+      'Combine technology, AI, data, and domain-focused solutions to address the unique challenges and opportunities of specific industries.',
+    note: 'Broad industry capability — for productized, ready-to-deploy industry systems, enter the AI Factory.',
+    visual: 'context',
+    visualLabel: 'Context before code',
+    rings: ['Regulation', 'Workflow', 'Language', 'Data'],
+    accent: ['#4169FF', '#5B1DB8'],
+    subs: [
+      { name: 'Healthcare', detail: 'Clinical workflows, compliance-aware systems, patient-facing intelligence.', rings: ['Regulation', 'Workflow', 'Data'] },
+      { name: 'Financial Services', detail: 'Trust infrastructure: onboarding, risk and lending operations.', rings: ['Regulation', 'Data'] },
+      { name: 'Industry-specific AI', detail: "Models and agents tuned to your domain's language and rules.", rings: ['Language', 'Data'] },
+      { name: 'Business Process Automation', detail: 'The repetitive core of operations, automated end to end.', rings: ['Workflow'] },
+      { name: 'Intelligent Workflow', detail: 'Routing, approvals and exception handling that think ahead.', rings: ['Workflow', 'Language'] },
+    ],
+  },
+  {
+    id: 'ready-to-deploy',
+    number: '06',
+    name: 'Ready-to-Deploy Resources',
+    tagline: 'Specialist engineers, embedded fast.',
+    hero: 'Engineering capability that integrates with your team.',
+    description:
+      'Access skilled technology professionals and specialized engineering talent that can integrate quickly with your existing teams and projects.',
+    visual: 'pod',
+    visualLabel: 'Compose a delivery pod',
+    podNote: 'A conceptual composition tool — not a statement of availability.',
+    accent: ['#67D8B0', '#27C7D9'],
+    subs: [
+      { name: 'Software Developers', detail: 'Product-minded engineers who ship.' },
+      { name: 'Full-Stack Developers', detail: 'Front to back, one accountable pair of hands.' },
+      { name: 'Frontend Developers', detail: 'Interfaces with craft and performance discipline.' },
+      { name: 'Backend Developers', detail: 'APIs, services and data layers built to last.' },
+      { name: 'Cloud Engineers', detail: 'Infrastructure as reliable, reviewable code.' },
+      { name: 'DevOps Engineers', detail: 'Deployment pipelines your team can trust.' },
+      { name: 'AI/ML Engineers', detail: 'Model integration into real production systems.' },
+      { name: 'Solution Architects', detail: 'System design that survives contact with scale.' },
+      { name: 'QA & Automation Engineers', detail: 'Quality engineered in, not inspected in.' },
+    ],
+  },
+];
+
+export const getFamily = (id) => SERVICE_FAMILIES.find((f) => f.id === id);
+export const familyNav = (id) => {
+  const i = SERVICE_FAMILIES.findIndex((f) => f.id === id);
+  return {
+    prev: SERVICE_FAMILIES[(i - 1 + SERVICE_FAMILIES.length) % SERVICE_FAMILIES.length],
+    next: SERVICE_FAMILIES[(i + 1) % SERVICE_FAMILIES.length],
+    index: i,
+  };
+};
+
+export const SERVICES_PAGE = {
+  kicker: 'Services',
+  headline: 'What we build.',
+  sub: 'From intelligent automation and AI systems to cloud infrastructure, data platforms, custom software and specialized engineering teams.',
+  differentiator: 'Services = what we build & deliver. AI Factory = ready-to-deploy industry intelligence.',
+  ctaHeadline: 'What should we build together?',
+  ctaSub: "Let's identify the highest-value capability for your business.",
+};

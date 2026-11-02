@@ -1,0 +1,27 @@
+{
+  "summary": "Iteration 9: Verified the CLEANUP + SIMPLIFICATION pass (duplicate CTA removal + no-crystal AI Factory rebuild). Backend pytest suite 7/7 passed. Frontend: /ai-factory has 0 canvases (no WebGL), the Factory Index has exactly 3 mode tabs (case-studies default open), the 12 solutions render grouped by 4 industries with correct calyza/blueprint chips, solution briefs unfold with the nested MiniModel, deep links (?industry=fintech, ?mode=ready-to-deploy&solution=claimkavach, ?mode=use-cases&industry=hospitality) all resolve correctly, bogus params do not crash. Old footer-cta-button removed on every audited page (0 occurrences globally), site-footer still renders with logo+nav+Book a Strategy Call. Homepage has exactly 1 canvas and 1 closing-cta; no duplicate 'Ready to build' endings. All 11 routes render with non-empty bodies and zero console errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "MINOR / OPTIONAL: When ALL three URL params are bogus (?mode=bogus&solution=bogus&industry=bogus), the mode resolves to 'use-cases' with the fallback industry (healthcare) because industryParam is a truthy string. The spec says bogus values should degrade to the 'valid default' (case-studies). It does not crash and content still renders. If strict-default behaviour is required, gate industryParam through FACTORY_INDUSTRIES.find before treating it as truthy in AIFactoryPage mode-resolution.",
+    "MINOR / OPTIONAL: SolutionBrief testids include the solution id suffix (brief-problem-rbi-regtech, brief-intelligence-rbi-regtech, brief-workflow-rbi-regtech, brief-deployment-rbi-regtech) rather than the plain brief-problem/brief-intelligence/brief-workflow/brief-deployment testids mentioned verbatim in the review request. All four sections do render and mini-model-{understand,decide,deploy} exist. Only flag if strict testid parity is required."
+  ],
+  "critical_code_review_comments": [
+    "AIFactoryPage.jsx mode-resolution treats industryParam='bogus' as truthy and opens use-cases mode with the healthcare fallback — safer to require getFactoryIndustry to match before switching modes.",
+    "SolutionBrief child testids embed the solution id (brief-problem-{id} etc.); consider adding an alias parent testid per section for testability."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Verified: no <canvas> on /ai-factory, exactly 1 canvas on / (homepage crystal), 12 factory-solution-* rows, 4 mode tabs? no — 3 mode tabs (case-studies/ready-to-deploy/use-cases). Old footer-cta-button gone globally. Services page uses services-cta (page-owned CTA, not shared ClosingCTA) — this matches spec ('keep existing What should we build together? CTA'). Case-study detail uses case-cta. AI Factory case-studies mode shows 10 factory-case-{slug} rows + 1 factory-case-archive-link (11 selectors match factory-case-* prefix). Backend 7/7 green."
+}

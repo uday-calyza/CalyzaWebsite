@@ -1,0 +1,28 @@
+{
+  "summary": "Full regression + new-feature QA of CalyzaTech black/off-white/peach re-theme and Case Studies experience. Backend: 7/7 pytest passing (/api/, /api/contact valid+invalid, /api/chat SSE fintech, multi-turn memory, honest no-fabrication, missing-session). Frontend: /case-studies renders hero, animated peach line, featured mortgage block (data-testid='featured-case') and dynamic grid of remaining 5 cards. FilterBar works client-side (no reload) — verified inside grid: ALL=5, TRAVEL=1 (Dasa Holidays), FINANCE=1 (invoice; mortgage correctly excluded since featured), DATA=1 (CAREOPS), AUTOMATION/HEALTHCARE/CLOUD/AI all filter to expected subset with animated peach underline. All six /case-studies/:slug pages load with unique document.title via useSeo, H1, 01 CHALLENGE→07 OUTCOME sections, key-takeaway (data-testid='case-takeaway'), CTA (data-testid='case-cta') and next-case link. Unknown slug /case-studies/bogus-slug-xyz correctly redirects to /case-studies. Legacy /mortage-processing redirects to /case-studies/ai-agent-mortgage-application-processing. Dark theme is pure black (body bg rgb(5,5,5)) with peach accents on nav/CTA/borders — no violet/blue/cyan leaks in chrome across /, /services, /ai-factory, /case-studies, /contact. Theme persists across reload. Light theme is warm paper #F7F5F2 with terracotta/peach accents. AI Factory bands: fintech commit shows factory-band-cta-fintech in dark mode; mobile accordion (factory-bands-mobile) mounts at 390px. Contact form submits successfully (contact-success visible) with valid payload. Chat panel opens; streamed reply to 'Do you have a mortgage case study?' returned 235 chars referencing the real mortgage metric (2.5 minutes) plus 'Explore FinTech AI' action chip — confirms backend system prompt is citing the six published case studies. Zero JS console errors / pageerrors across all tested routes. No horizontal overflow at 390 / 820 / 1440 on landing or detail pages.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "CaseCard uses data-testid='case-card-<slug>' and also emits 'case-card-visual-<slug>' — the shared 'case-card-' prefix can trip up prefix-based selectors. Consider renaming inner visual testid to 'case-visual-<slug>' (or 'card-visual-<slug>') to avoid future ambiguity in Playwright suites.",
+    "CaseStudyDetail renders keyTakeaway text but does not include a visible 'KEY TAKEAWAY' kicker/label like the other numbered sections (01–07). The section testid 'case-takeaway' is present but a small 'KEY TAKEAWAY' eyebrow would improve readability parity with the rest of the page. (Design nit — original spec mentioned 'KEY TAKEAWAY (large italic)'.)",
+    "CASE_STUDIES data-driven architecture verified: no per-case hardcoded pages exist (all six render via /case-studies/:slug + getCaseStudy). Adding more entries to /app/frontend/src/data/caseStudies.js is safe.",
+    "Carry-over from iter_2: server.py chat_sessions is still an in-memory dict (fine for MVP); ContactMessageCreate.email is plain str (EmailStr would be stricter)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "N/A - no auth",
+  "seed_data_creation": "One 'TEST QA / qa@test.com' contact_messages row inserted from UI regression + one from pytest run. Safe to leave.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All prior testids preserved. New testids added this iteration: case-studies-page, featured-case, featured-case-visual, case-filter-bar, filter-{all|ai|cloud|data|automation|healthcare|finance|travel}, case-grid, case-grid-empty, case-card-<slug>, case-card-visual-<slug>, case-takeaway, case-cta, case-cta-button. Detail slugs live: ai-agent-mortgage-application-processing (featured), ai-powered-invoice-automation-on-aws, dasa-holidays-aws-cloud-infrastructure, healthcare-document-processing-ai-ocr, careops-home-health-referral-extraction, jpp-tech-ai-powered-chatbot. Filter expected counts (excluding featured): ALL=5, TRAVEL=1, FINANCE=1, DATA=1, HEALTHCARE=2. Chatbot system prompt now cites the six real case studies with real metrics (verified via live stream).",
+  "rca of the issue": "N/A — no functional bugs found."
+}

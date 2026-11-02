@@ -1,0 +1,69 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, EmailStr
+import smtplib
+from email.utils import formataddr
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://calyzatech.com","https://www.calyzatech.com"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+class ContactForm(BaseModel):
+    name: str = ""
+    email: str = ""
+    company: str = ""
+    industry: str = ""
+    message: str = ""
+    timeline: str = ""
+
+@app.post("/api/contact")
+async def send_contact(form: ContactForm):
+    try:
+        sender_email = os.getenv("SMTP_EMAIL")
+        sender_password = os.getenv("SMTP_PASSWORD")
+        recipient = os.getenv("RECIPIENT_EMAIL")
+
+        msg = MIMEMultipart()
+        msg["From"] = formataddr((f"{form.name} via CalyzaTech Website", sender_email))
+        msg["To"] = recipient
+        msg["Subject"] = f"CalyzaTech Contact: {form.name} - {form.company}"
+        msg["Reply-To"] = form.email
+
+        body = f"""
+New contact form submission from CalyzaTech website:
+
+Name: {form.name}
+Email: {form.email}
+Company: {form.company}
+Industry: {form.industry}
+Timeline: {form.timeline}
+
+Message:
+{form.message}
+"""
+        msg.attach(MIMEText(body, "plain"))
+
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.starttls()
+            server.login(sender_email, sender_password)
+            server.sendmail(sender_email, recipient, msg.as_string())
+
+        return {"status": "success", "message": "Email sent successfully"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/api/health")
+async def health():
+    return {"status": "ok"}
