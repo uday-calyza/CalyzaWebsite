@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalyzaBOT Chat Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body.dark-mode {
+            background: linear-gradient(135deg, #232136 0%, #3b3663 100%);
+        }
+        .dark-mode .phone-frame {
+            background: rgba(34,34,54,0.85);
+            box-shadow: 0 8px 32px 0 rgba(124,58,237,0.28), 0 1.5px 8px 0 rgba(124,58,237,0.18);
+            border: 1.5px solid #232136;
+            backdrop-filter: blur(16px);
+        }
+        .dark-mode .header {
+            background: linear-gradient(90deg, #232136 0%, #7c3aed 100%);
+            color: #ede9fe;
+            border-bottom: 1.5px solid #232136;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.18);
+        }
+        .dark-mode .header .icon {
+            color: #a78bfa;
+        }
+        .dark-mode .chat-body {
+            background: linear-gradient(120deg, #232136 60%, #3b3663 100%);
+        }
+        .dark-mode .bot-message {
+            background: rgba(34,34,54,0.95);
+            color: #ede9fe;
+            border-left: 4px solid #7c3aed;
+            box-shadow: 0 2px 12px rgba(124,58,237,0.18);
+        }
+        .dark-mode .bot-message.secondary {
+            border-left: 4px solid #a78bfa;
+        }
+        .dark-mode .dropdown-label {
+            color: #a78bfa;
+        }
+        .dark-mode select {
+            background: rgba(34,34,54,0.95);
+            color: #ede9fe;
+            border: 1.5px solid #7c3aed;
+        }
+        .dark-mode select:focus {
+            border: 2px solid #a78bfa;
+            box-shadow: 0 0 0 2px #232136;
+        }
+        .dark-mode .avatar {
+            color: #a78bfa;
+            background: rgba(124,58,237,0.12);
+        }
+        .dark-mode .continue-btn {
+            background: linear-gradient(90deg, #232136 0%, #7c3aed 100%);
+            color: #ede9fe;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.18);
+        }
+        .dark-mode .continue-btn:hover {
+            background: linear-gradient(90deg, #3b3663 0%, #a78bfa 100%);
+            box-shadow: 0 4px 16px rgba(124,58,237,0.23);
+        }
+        body {
+            background: linear-gradient(135deg, #f5f6fa 0%, #e9e6ff 100%);
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .phone-frame {
+            background: rgba(255,255,255,0.7);
+            border-radius: 32px;
+            box-shadow: 0 8px 32px 0 rgba(124,58,237,0.18), 0 1.5px 8px 0 rgba(124,58,237,0.08);
+            width: 350px;
+            height: 610px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1.5px solid #e0e0e0;
+            position: relative;
+            backdrop-filter: blur(12px);
+        }
+        .header {
+            background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%);
+            color: #fff;
+            padding: 22px 0 16px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 1.5px;
+            border-bottom: 1.5px solid #ede9fe;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.08);
+        }
+        .header .icon {
+            position: absolute;
+            right: 18px;
+            top: 22px;
+            font-size: 1.3rem;
+            color: #ede9fe;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .chat-body {
+            flex: 1;
+            padding: 32px 20px 0 20px;
+            background: linear-gradient(120deg, #f8f9fb 60%, #ede9fe 100%);
+            overflow-y: auto;
+        }
+        .bot-message {
+            background: rgba(255,255,255,0.85);
+            border-radius: 18px 18px 8px 18px;
+            padding: 18px 18px 16px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(124,58,237,0.07);
+            font-size: 1.05rem;
+            color: #3b3663;
+            border-left: 4px solid #a78bfa;
+        }
+        .bot-message.secondary {
+            margin-bottom: 28px;
+            border-left: 4px solid #7c3aed;
+        }
+        .dropdown-section {
+            margin-bottom: 22px;
+        }
+        .dropdown-label {
+            font-size: 1.04rem;
+            color: #6d28d9;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 600;
+        }
+        select {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1.5px solid #a78bfa;
+            font-size: 1.05rem;
+            background: rgba(255,255,255,0.95);
+            color: #3b3663;
+            outline: none;
+            margin-bottom: 10px;
+            transition: border 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 4px rgba(124,58,237,0.04);
+        }
+        select:focus {
+            border: 2px solid #7c3aed;
+            box-shadow: 0 0 0 2px #ede9fe;
+        }
+        .avatars {
+            display: flex;
+            justify-content: space-between;
+            margin: 22px 0 14px 0;
+        }
+        .avatar {
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            color: #7c3aed;
+            background: rgba(167,139,250,0.12);
+            padding: 7px 16px 7px 10px;
+            border-radius: 16px;
+            font-weight: 500;
+            box-shadow: 0 1px 4px rgba(124,58,237,0.04);
+        }
+        .avatar span {
+            margin-left: 7px;
+        }
+        .continue-btn {
+            width: 92%;
+            margin: 0 auto 22px auto;
+            display: block;
+            background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 0;
+            font-size: 1.12rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.10);
+            letter-spacing: 0.5px;
+        }
+        .continue-btn:hover {
+            background: linear-gradient(90deg, #5b21b6 0%, #a78bfa 100%);
+            box-shadow: 0 4px 16px rgba(124,58,237,0.13);
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="header">
+            Calyza Tech
+            <span class="icon" id="themeToggle" title="Toggle dark/light mode" style="transition: transform 0.2s;">
+                <svg id="themeIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 18V20M12 4V6M4.929 4.929L6.343 6.343M17.657 17.657L19.071 19.071M4.929 19.071L6.343 17.657M17.657 6.343L19.071 4.929M12 16a4 4 0 100-8 4 4 0 000 8z" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        </div>
+        <div class="chat-body">
+            <div class="bot-message">
+                <span>👋 Hi, I'm CalyzaBOT — your smart cloud assistant!</span>
+            </div>
+            <div class="bot-message secondary">
+                Welcome to the future of conversations! 🚀<br>
+                Powered by advanced AI, I'm here to be your intelligent companion—ready to answer, assist, and inspire. <br>
+                Set your preferences below and let’s unlock a world of smart possibilities together.
+            </div>
+            <div class="dropdown-section">
+                <label class="dropdown-label" for="language">Select your language</label>
+                <select id="language">
+                    <option selected disabled>Select your language</option>
+                    <option>English</option>
+                    <option>Hindi</option>
+                    <option>Gujarati</option>
+                    <option>Arabic</option>
+                </select>
+            </div>
+            <div class="avatars">
+                <div class="avatar">👋 <span>Hi, I'm Oria!</span></div>
+                <div class="avatar">👋 <span>Hi, I'm Oren!</span></div>
+            </div>
+        </div>
+        <button class="continue-btn" id="continueBtn">Continue</button>
+    </div>
+    <script>
+        // Enable Continue button only when a language is selected
+        const languageSelect = document.getElementById('language');
+        const continueBtn = document.getElementById('continueBtn');
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        // Initial state of the Continue button
+        function updateContinueButtonState() {
+            if (languageSelect.value !== 'Select your language') {
+                continueBtn.disabled = false;
+                continueBtn.style.opacity = 1;
+                continueBtn.style.cursor = 'pointer';
+            } else {
+                continueBtn.disabled = true;
+                continueBtn.style.opacity = 0.6;
+                continueBtn.style.cursor = 'not-allowed';
+            }
+        }
+
+        languageSelect.addEventListener('change', updateContinueButtonState);
+
+        // Initial call to set the button state correctly on page load
+        updateContinueButtonState();
+
+        // Theme toggle functionality
+        const lightModeIcon = '<path d="M12 18V20M12 4V6M4.929 4.929L6.343 6.343M17.657 17.657L19.071 19.071M4.929 19.071L6.343 17.657M17.657 6.343L19.071 4.929M12 16a4 4 0 100-8 4 4 0 000 8z" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-slinejoin="round"/>';
+        const darkModeIcon = '<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" stroke="#ede9fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+
+        function updateTheme() {
+            const isDarkMode = localStorage.getItem('theme') === 'dark';
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            themeIcon.innerHTML = isDarkMode ? darkModeIcon : lightModeIcon;
+
+            // Adjust header icon color based on theme
+            const headerIcon = document.querySelector('.header .icon');
+            if (isDarkMode) {
+                headerIcon.style.color = '#a78bfa';
+                themeIcon.querySelector('path').setAttribute('stroke', '#ede9fe');
+            } else {
+                headerIcon.style.color = '#ede9fe';
+                themeIcon.querySelector('path').setAttribute('stroke', '#7c3aed');
+            }
+        }
+
+        function toggleTheme() {
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+            updateTheme();
+        }
+
+        // Apply theme on page load
+        document.addEventListener('DOMContentLoaded', updateTheme);
+
+        // Add event listener to the toggle button
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Navigate to chat.html when the Continue button is clicked
+        continueBtn.addEventListener('click', function() {
+            window.location.href = '/chatpage';
+        });
+    </script>
+</body>
+</html>

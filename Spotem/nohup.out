@@ -1,0 +1,901 @@
+/usr/bin/python3: No module named uvicorn
+/home/ubuntu/Spotem/venv/bin/python: No module named uvicorn
+INFO:     Started server process [13415]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     Started server process [13443]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     127.0.0.1:45326 - "GET /health HTTP/1.1" 200 OK
+INFO:     171.61.167.97:25690 - "GET /static/embed.js HTTP/1.1" 200 OK
+INFO:     171.61.167.97:28924 - "GET /chatpage HTTP/1.1" 200 OK
+INFO:     171.61.167.97:1364 - "GET /static/embed.js HTTP/1.1" 200 OK
+INFO:     171.61.167.97:10382 - "GET /static/embed.js HTTP/1.1" 200 OK
+INFO:     171.61.167.97:1364 - "GET /chatpage HTTP/1.1" 200 OK
+INFO:     160.238.94.6:55028 - "GET /static/embed.js HTTP/1.1" 200 OK
+🔍 Invoking LLM with prompt: You are CalyzaBOT, a helpful assistant for CalyzaTech company.
+
+User Question: how are you
+
+CalyzaTe...
+🔍 LLM response type: <class 'langchain_core.messages.ai.AIMessage'>
+🔍 LLM response: content="Thank you for asking! As a digital assistant, I'm always ready to help with your inquiries about CalyzaTech's services, case studies, or scheduling a strategy call. If you have any questions or need assistance with our AI solutions, feel free to ask. Let's tackle your challenges together!" additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': 'bf53986c-e6b4-43eb-aa1e-51c7db91fc93', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 20 Aug 2026 05:45:03 GMT', 'content-type': 'application/json', 'content-length': '493', 'connection': 'keep-alive', 'x-amzn-requestid': 'bf53986c-e6b4-43eb-aa1e-51c7db91fc93'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [596]}, 'model_provider': 'bedrock_converse', 'model_name': 'amazon.nova-pro-v1:0'} id='lc_run--01a01db3-8fd1-7d82-ba19-d25cc291ccf7-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 269, 'output_tokens': 65, 'total_tokens': 334, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+INFO:     171.61.167.97:5716 - "POST /chat HTTP/1.1" 200 OK
+🔍 Invoking LLM with prompt: You are CalyzaBOT, a helpful assistant for CalyzaTech company.
+
+User Question: who made
+
+CalyzaTech ...
+🔍 LLM response type: <class 'langchain_core.messages.ai.AIMessage'>
+🔍 LLM response: content='CalyzaTech is the creator of The Calyza Crystal, a comprehensive suite of AI-driven solutions including intelligent automation, cloud infrastructure, and custom software. They specialize in building technology systems tailored to how businesses operate, offering services like AI, cloud, data management, custom software development, and industry-specific solutions. Their AI Factory provides ready-to-deploy industry intelligence and resources.' additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': '0367149b-27dc-455a-961d-13162755181d', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 20 Aug 2026 05:45:19 GMT', 'content-type': 'application/json', 'content-length': '649', 'connection': 'keep-alive', 'x-amzn-requestid': '0367149b-27dc-455a-961d-13162755181d'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [705]}, 'model_provider': 'bedrock_converse', 'model_name': 'amazon.nova-pro-v1:0'} id='lc_run--01a01db3-cfa0-7f22-b876-8ff92e7baa5e-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 362, 'output_tokens': 80, 'total_tokens': 442, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+INFO:     171.61.167.97:15338 - "POST /chat HTTP/1.1" 200 OK
+INFO:     171.61.167.97:9397 - "GET /chatpage HTTP/1.1" 200 OK
+🔍 Invoking LLM with prompt: You are CalyzaBOT, a helpful assistant for CalyzaTech company.
+
+User Question: hwllo
+
+CalyzaTech Con...
+🔍 LLM response type: <class 'langchain_core.messages.ai.AIMessage'>
+🔍 LLM response: content="Hello! It seems like you're interested in CalyzaTech's innovative solutions. Whether you're looking to enhance education with adaptive learning operations, improve hospitality with anticipatory guest experiences, streamline healthcare with automated care operations, or revolutionize fintech with trust infrastructure, CalyzaTech has tailored solutions for you. Let me know how I can assist you further." additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': '5be07aa3-a17c-4d7f-8dea-35879c8f59d3', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 20 Aug 2026 05:45:33 GMT', 'content-type': 'application/json', 'content-length': '607', 'connection': 'keep-alive', 'x-amzn-requestid': '5be07aa3-a17c-4d7f-8dea-35879c8f59d3'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [646]}, 'model_provider': 'bedrock_converse', 'model_name': 'amazon.nova-pro-v1:0'} id='lc_run--01a01db4-068e-7f51-b606-90c309fc7ac9-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 447, 'output_tokens': 75, 'total_tokens': 522, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+INFO:     171.61.167.97:6781 - "POST /chat HTTP/1.1" 200 OK
+🔍 Invoking LLM with prompt: You are CalyzaBOT, a helpful assistant for CalyzaTech company.
+
+User Question: what is the capabilit...
+🔍 LLM response type: <class 'langchain_core.messages.ai.AIMessage'>
+🔍 LLM response: content='CalyzaTech specializes in building intelligent solutions that automate processes, enhance decision-making, and create new ways for businesses to engage with customers, employees, and data. Their capabilities include generative AI, AI agents, custom AI/ML models, AI automation, and AI consulting & strategy. They also offer cloud infrastructure, data solutions, custom software development, and ready-to-deploy industry intelligence.' additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': 'ab159c0d-c6ac-48d7-bb7c-74d16273fc2f', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 20 Aug 2026 05:46:06 GMT', 'content-type': 'application/json', 'content-length': '637', 'connection': 'keep-alive', 'x-amzn-requestid': 'ab159c0d-c6ac-48d7-bb7c-74d16273fc2f'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [621]}, 'model_provider': 'bedrock_converse', 'model_name': 'amazon.nova-pro-v1:0'} id='lc_run--01a01db4-895d-7dd0-b94e-c83c55a67579-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 370, 'output_tokens': 81, 'total_tokens': 451, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+INFO:     171.61.167.97:29385 - "POST /chat HTTP/1.1" 200 OK
+INFO:     171.61.167.97:18564 - "GET /static/embed.js HTTP/1.1" 200 OK
+INFO:     171.61.167.97:31097 - "GET /chatpage HTTP/1.1" 200 OK
+🔍 Invoking LLM with prompt: You are CalyzaBOT, a helpful assistant for CalyzaTech company.
+
+User Question: how much employe in t...
+🔍 LLM response type: <class 'langchain_core.messages.ai.AIMessage'>
+🔍 LLM response: content="While the exact number of employees at CalyzaTech isn't specified in the provided context, the company's rapid growth and achievements, such as reaching AWS Advanced Tier and Generative AI Competency within a year, suggest a dynamic and expanding team. For the most accurate and current information on the number of employees, I recommend visiting the CalyzaTech website or contacting them directly." additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': 'fc16c78e-f736-4802-aaf4-a878804c90a3', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 20 Aug 2026 05:47:02 GMT', 'content-type': 'application/json', 'content-length': '603', 'connection': 'keep-alive', 'x-amzn-requestid': 'fc16c78e-f736-4802-aaf4-a878804c90a3'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [625]}, 'model_provider': 'bedrock_converse', 'model_name': 'amazon.nova-pro-v1:0'} id='lc_run--01a01db5-643c-75a1-8140-467c16c389b9-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 383, 'output_tokens': 78, 'total_tokens': 461, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+INFO:     171.61.167.97:22738 - "POST /chat HTTP/1.1" 200 OK
+INFO:     171.61.167.97:15682 - "POST /chat HTTP/1.1" 200 OK
+🔍 Invoking LLM with prompt: You are CalyzaBOT, a helpful assistant for CalyzaTech company.
+
+User Question: who are you
+
+CalyzaTe...
+🔍 LLM response type: <class 'langchain_core.messages.ai.AIMessage'>
+🔍 LLM response: content="I am an AI system built by a team of inventors at Amazon, designed to assist with inquiries related to CalyzaTech. I'm here to provide information about CalyzaTech's services, AI Factory, case studies, and to help you book an AI strategy call. Feel free to ask any questions you have about how CalyzaTech can leverage AI for your business." additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': '87ae6e9e-d5c9-4107-8986-67da048d77f7', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 20 Aug 2026 05:47:18 GMT', 'content-type': 'application/json', 'content-length': '543', 'connection': 'keep-alive', 'x-amzn-requestid': '87ae6e9e-d5c9-4107-8986-67da048d77f7'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [570]}, 'model_provider': 'bedrock_converse', 'model_name': 'amazon.nova-pro-v1:0'} id='lc_run--01a01db5-a19c-7a71-b4ec-6a1dc32ffec7-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 354, 'output_tokens': 80, 'total_tokens': 434, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+INFO:     171.61.167.97:19867 - "POST /chat HTTP/1.1" 200 OK
+🔍 Invoking LLM with prompt: You are CalyzaBOT, a helpful assistant for CalyzaTech company.
+
+User Question: give me ceo name
+
+Cal...
+🔍 LLM response type: <class 'langchain_core.messages.ai.AIMessage'>
+🔍 LLM response: content="I'm sorry, but I can't share specific names of individuals due to privacy policies. If you'd like to contact CalyzaTech for business inquiries or partnerships, I recommend using the contact form on their official website. They assure that every message is read personally and replied to quickly." additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': '595bffcd-fca1-4666-8a06-e23ffd4ff1b3', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 20 Aug 2026 05:47:30 GMT', 'content-type': 'application/json', 'content-length': '499', 'connection': 'keep-alive', 'x-amzn-requestid': '595bffcd-fca1-4666-8a06-e23ffd4ff1b3'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [563]}, 'model_provider': 'bedrock_converse', 'model_name': 'amazon.nova-pro-v1:0'} id='lc_run--01a01db5-d1de-7593-8379-df951723ab00-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 356, 'output_tokens': 62, 'total_tokens': 418, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+INFO:     171.61.167.97:9572 - "POST /chat HTTP/1.1" 200 OK
+🔍 Invoking LLM with prompt: You are CalyzaBOT, a helpful assistant for CalyzaTech company.
+
+User Question: give me location of t...
+🔍 LLM response type: <class 'langchain_core.messages.ai.AIMessage'>
+🔍 LLM response: content="I'm sorry, but I can't share specific location details of CalyzaTech. However, you can reach out to them directly through their contact page on their official website for any inquiries or collaboration opportunities. They assure that they read everything personally and reply quickly." additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': 'a43e03c9-1d66-48a6-9a34-6f970cd774ae', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 20 Aug 2026 05:47:56 GMT', 'content-type': 'application/json', 'content-length': '488', 'connection': 'keep-alive', 'x-amzn-requestid': 'a43e03c9-1d66-48a6-9a34-6f970cd774ae'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [519]}, 'model_provider': 'bedrock_converse', 'model_name': 'amazon.nova-pro-v1:0'} id='lc_run--01a01db6-3595-7f01-b61f-89129db77a27-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 358, 'output_tokens': 56, 'total_tokens': 414, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+INFO:     171.61.167.97:11860 - "POST /chat HTTP/1.1" 200 OK
+🔍 Invoking LLM with prompt: You are CalyzaBOT, a helpful assistant for CalyzaTech company.
+
+User Question: i want to sedusle mit...
+🔍 LLM response type: <class 'langchain_core.messages.ai.AIMessage'>
+🔍 LLM response: content="To schedule a meeting for your project, please identify the key stakeholders and propose a few date and time options. Use CalyzaTech's automated scheduling tool to send out invites, ensuring all participants can attend. This will help streamline the process and ensure everyone is on the same page for the project discussion." additional_kwargs={} response_metadata={'ResponseMetadata': {'RequestId': '52f111ad-74a8-474b-b67b-6a36866e2326', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 20 Aug 2026 05:48:32 GMT', 'content-type': 'application/json', 'content-length': '529', 'connection': 'keep-alive', 'x-amzn-requestid': '52f111ad-74a8-474b-b67b-6a36866e2326'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': [637]}, 'model_provider': 'bedrock_converse', 'model_name': 'amazon.nova-pro-v1:0'} id='lc_run--01a01db6-c378-7de1-bac5-50bbbf6a020a-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 537, 'output_tokens': 63, 'total_tokens': 600, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}}
+INFO:     171.61.167.97:1319 - "POST /chat HTTP/1.1" 200 OK
+INFO:     171.61.167.97:32502 - "GET /chatpage HTTP/1.1" 200 OK
+INFO:     171.61.167.97:5981 - "GET /static/embed.js HTTP/1.1" 200 OK
+INFO:     171.61.167.97:13540 - "GET /static/embed.js HTTP/1.1" 200 OK
+INFO:     171.61.167.97:14906 - "GET /static/embed.js HTTP/1.1" 200 OK
+INFO:     66.179.9.231:0 - "GET /api/session/properties HTTP/1.1" 404 Not Found
+INFO:     171.61.167.97:14157 - "GET /static/embed.js HTTP/1.1" 200 OK
+INFO:     171.61.167.97:14157 - "GET /chatpage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [13443]
+INFO:     Started server process [14858]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     127.0.0.1:38270 - "GET /health HTTP/1.1" 200 OK
+INFO:     171.61.167.97:13528 - "GET /static/voice-embed.js HTTP/1.1" 200 OK
+INFO:     171.61.167.97:13528 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     171.61.167.97:29470 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     171.61.167.97:29470 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     171.61.167.97:31613 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     171.61.167.97:31613 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     171.61.167.97:31613 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     171.61.167.97:31613 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     171.61.167.97:31613 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39080 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39086 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py", line 409, in run_asgi
+    result = await self.app(self.scope, self.receive, self.send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 103, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 80, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2734, in app
+    await route.handle(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/routing.py", line 354, in handle
+    await self.app(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/fastapi/routing.py", line 184, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/fastapi/routing.py", line 181, in app
+    await func(session)
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/fastapi/routing.py", line 796, in app
+    await dependant.call(**solved_result.values)
+  File "/home/ubuntu/Spotem/backend.py", line 442, in websocket_voice
+    from voicebot_server import voicebot_websocket_handler
+  File "/home/ubuntu/Spotem/voicebot_server.py", line 27, in <module>
+    from nova_sonic_kb import website_knowledge_retrieval
+  File "/home/ubuntu/Spotem/nova_sonic_kb.py", line 4, in <module>
+    from langchain.text_splitter import RecursiveCharacterTextSplitter
+ModuleNotFoundError: No module named 'langchain.text_splitter'
+INFO:     connection rejected (500 Internal Server Error)
+INFO:     127.0.0.1:49298 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [14858]
+INFO:     Started server process [15308]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     127.0.0.1:56732 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57910 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57926 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57936 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57950 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57972 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57978 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57984 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40342 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55272 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55288 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55294 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55310 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55314 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55316 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55328 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55334 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60212 - "WebSocket /ws/voice" [accepted]
+INFO:     connection open
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/awscrt/aio/http.py", line 389, in _on_body
+    future.set_result(chunk)
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 544, in set_result
+    raise InvalidStateError('{}: {!r}'.format(self._state, self))
+concurrent.futures._base.InvalidStateError: CANCELLED: <Future at 0x73919ff49700 state=cancelled>
+Treating Python exception as error 3(AWS_ERROR_UNKNOWN)
+INFO:     127.0.0.1:60216 - "WebSocket /ws/voice" [accepted]
+INFO:     connection open
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/awscrt/aio/http.py", line 389, in _on_body
+    future.set_result(chunk)
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 544, in set_result
+    raise InvalidStateError('{}: {!r}'.format(self._state, self))
+concurrent.futures._base.InvalidStateError: CANCELLED: <Future at 0x73919ff66db0 state=cancelled>
+Treating Python exception as error 3(AWS_ERROR_UNKNOWN)
+✅ Voice session started: af5a926a...
+🔴 Voice session closed: af5a926a...
+✅ Voice session started: ac41c778...
+🔴 Voice session closed: ac41c778...
+INFO:     127.0.0.1:58516 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15308]
+INFO:     Started server process [15457]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     127.0.0.1:43630 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39196 - "WebSocket /ws/voice" [accepted]
+INFO:     connection open
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/awscrt/aio/http.py", line 389, in _on_body
+    future.set_result(chunk)
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 544, in set_result
+    raise InvalidStateError('{}: {!r}'.format(self._state, self))
+concurrent.futures._base.InvalidStateError: CANCELLED: <Future at 0x78ba4e6bd700 state=cancelled>
+Treating Python exception as error 3(AWS_ERROR_UNKNOWN)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15457]
+INFO:     Started server process [15540]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     127.0.0.1:55682 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55684 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58048 - "WebSocket /ws/voice" [accepted]
+INFO:     connection open
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/awscrt/aio/http.py", line 389, in _on_body
+    future.set_result(chunk)
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 544, in set_result
+    raise InvalidStateError('{}: {!r}'.format(self._state, self))
+concurrent.futures._base.InvalidStateError: CANCELLED: <Future at 0x7e470ce54bc0 state=cancelled>
+Treating Python exception as error 3(AWS_ERROR_UNKNOWN)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15540]
+INFO:     Started server process [15623]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     127.0.0.1:45014 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33194 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33210 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33216 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48438 - "WebSocket /ws/voice" [accepted]
+INFO:     connection open
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/awscrt/aio/http.py", line 389, in _on_body
+    future.set_result(chunk)
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 544, in set_result
+    raise InvalidStateError('{}: {!r}'.format(self._state, self))
+concurrent.futures._base.InvalidStateError: CANCELLED: <Future at 0x79527c985880 state=cancelled>
+Treating Python exception as error 3(AWS_ERROR_UNKNOWN)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15623]
+INFO:     Started server process [15718]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     127.0.0.1:41156 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41168 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34026 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34036 - "WebSocket /ws/voice" [accepted]
+INFO:     connection open
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15718]
+INFO:     Started server process [15746]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     127.0.0.1:60894 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60896 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59656 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59664 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54670 - "WebSocket /ws/voice" [accepted]
+INFO:     connection open
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15746]
+INFO:     Started server process [15838]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ FAISS index loaded successfully.
+✅ Retriever initialized.
+✅ Bedrock LLM initialized successfully.
+INFO:     127.0.0.1:58156 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58170 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58012 - "WebSocket /ws/voice" [accepted]
+INFO:     connection open
+✅ Voice session started: 38ae22dc...
+🔴 Voice session closed: 38ae22dc...
+INFO:     198.235.24.233:64802 - "GET / HTTP/1.1" 200 OK
+INFO:     20.118.216.125:41814 - "GET / HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     127.0.0.1:55546 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55562 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55578 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55588 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55596 - "GET /voicepage HTTP/1.1" 200 OK
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+INFO:     127.0.0.1:39356 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39364 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:39376 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39378 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:39392 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39400 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39402 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:39418 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+opening handshake failed
+Traceback (most recent call last):
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 140, in accept
+    ) = self.process_request(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Spotem/venv/lib/python3.12/site-packages/websockets/server.py", line 246, in process_request
+    raise InvalidUpgrade("Upgrade", ", ".join(upgrade) if upgrade else None)
+websockets.exceptions.InvalidUpgrade: missing Upgrade header
+INFO:     127.0.0.1:51822 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51826 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60112 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60114 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60122 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60128 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60134 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36226 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36240 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36256 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36268 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:36276 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36288 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36298 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36308 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36318 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:40424 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55826 - "GET /voicepage HTTP/1.1" 200 OK
+/home/ubuntu/Spotem/nova_sonic_kb.py:13: LangChainDeprecationWarning: The class `BedrockEmbeddings` was deprecated in LangChain 0.2.11 and will be removed in 1.0. An updated version of the class exists in the `langchain-aws package and should be used instead. To use it run `pip install -U `langchain-aws` and import as `from `langchain_aws import BedrockEmbeddings``.
+  embedding_model = BedrockEmbeddings(
+INFO:     127.0.0.1:55134 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     66.179.9.231:0 - "GET /api/session/properties HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:38940 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43310 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43326 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:43338 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43354 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:43722 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52104 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52112 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60908 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57096 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57106 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:46470 - "GET /voicepage HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15838]

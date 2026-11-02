@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Widget</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f6fa 0%, #e9e6ff 100%);
+            min-height: 100vh;
+        }
+
+        /* Floating Button */
+        .chat-button {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(124, 58, 237, 0.4);
+        }
+
+        .chat-button svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        /* Chat Widget Container */
+        .chat-widget {
+            position: fixed;
+            bottom: 104px;
+            right: 24px;
+            width: 300px !important;
+            height: 600px;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.18);
+            border: 1.5px solid #e0e0e0;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            z-index: 999;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .chat-widget.active {
+            display: flex;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: linear-gradient(135deg, #232136 0%, #3b3663 100%);
+        }
+
+        .dark-mode .chat-widget {
+            background: rgba(34, 34, 54, 0.95);
+            border: 1.5px solid #7c3aed;
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.28);
+        }
+
+        /* Header */
+        .chat-header {
+            background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%);
+            color: white;
+            padding: 22px 20px 16px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 1.5px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+        }
+
+        .dark-mode .chat-header {
+            background: linear-gradient(90deg, #232136 0%, #7c3aed 100%);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 18px;
+            top: 22px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #ede9fe;
+            transition: transform 0.2s;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(12deg);
+        }
+
+        .theme-toggle svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Welcome Screen */
+        .welcome-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .welcome-body {
+            flex: 1;
+            padding: 32px 20px;
+            background: linear-gradient(120deg, #f8f9fb 60%, #ede9fe 100%);
+            overflow-y: auto;
+        }
+
+        .dark-mode .welcome-body {
+            background: linear-gradient(120deg, #232136 60%, #3b3663 100%);
+        }
+
+        .bot-message {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 18px 18px 8px 18px;
+            padding: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(124, 58, 237, 0.07);
+            font-size: 1.05rem;
+            color: #3b3663;
+            border-left: 4px solid #a78bfa;
+        }
+
+        .dark-mode .bot-message {
+            background: rgba(34, 34, 54, 0.95);
+            color: #ede9fe;
+            border-left: 4px solid #7c3aed;
+            box-shadow: 0 2px 12px rgba(124, 58, 237, 0.18);
+        }
+
+        .bot-message.secondary {
+            margin-bottom: 28px;
+            border-left: 4px solid #7c3aed;
+        }
+
+        .dark-mode .bot-message.secondary {
+            border-left: 4px solid #a78bfa;
+        }
+
+        .language-section {
+            margin-bottom: 22px;
+        }
+
+        .language-label {
+            font-size: 1.04rem;
+            color: #6d28d9;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .dark-mode .language-label {
+            color: #a78bfa;
+        }
+
+        .language-select {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1.5px solid #a78bfa;
+            font-size: 1.05rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: #3b3663;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .language-select:focus {
+            border: 2px solid #7c3aed;
+            box-shadow: 0 0 0 2px #ede9fe;
+        }
+
+        .dark-mode .language-select {
+            background: rgba(34, 34, 54, 0.95);
+            color: #ede9fe;
+            border: 1.5px solid #7c3aed;
+        }
+
+        .dark-mode .language-select:focus {
+            border: 2px solid #a78bfa;
+            box-shadow: 0 0 0 2px #232136;
+        }
+
+        .avatars {
+            display: flex;
+            justify-content: space-between;
+            margin: 22px 0 14px;
+            gap: 10px;
+        }
+
+        .avatar {
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            color: #7c3aed;
+            background: rgba(167, 139, 250, 0.12);
+            padding: 7px 16px 7px 10px;
+            border-radius: 16px;
+            font-weight: 500;
+            box-shadow: 0 1px 4px rgba(124, 58, 237, 0.04);
+        }
+
+        .dark-mode .avatar {
+            color: #a78bfa;
+            background: rgba(124, 58, 237, 0.12);
+        }
+
+        .continue-btn {
+            margin: 0 20px 22px;
+            width: calc(100% - 40px);
+            background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 0;
+            font-size: 1.12rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.10);
+            letter-spacing: 0.5px;
+        }
+
+        .continue-btn:hover {
+            background: linear-gradient(90deg, #5b21b6 0%, #a78bfa 100%);
+            box-shadow: 0 4px 16px rgba(124, 58, 237, 0.13);
+        }
+
+        .continue-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .dark-mode .continue-btn {
+            background: linear-gradient(90deg, #232136 0%, #7c3aed 100%);
+        }
+
+        .dark-mode .continue-btn:hover {
+            background: linear-gradient(90deg, #3b3663 0%, #a78bfa 100%);
+        }
+
+        /* Chat Screen */
+        .chat-screen {
+            flex: 1;
+            display: none;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .chat-screen.active {
+            display: flex;
+        }
+
+        .simple-header {
+            background: white;
+            color: #333;
+            padding: 18px 0 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dark-mode .simple-header {
+            background: #232136;
+            color: #ede9fe;
+            border-bottom: 1px solid #3b3663;
+        }
+
+        .messages {
+            flex: 1;
+            padding: 18px 12px;
+            overflow-y: auto;
+            background: #f8f9fb;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dark-mode .messages {
+            background: #232136;
+        }
+
+        .message {
+            max-width: 80%;
+            margin-bottom: 12px;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 1rem;
+            word-break: break-word;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: #7c3aed;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.bot {
+            align-self: flex-start;
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.04);
+        }
+
+        .dark-mode .message.bot {
+            background: #3b3663;
+            color: #ede9fe;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.1);
+        }
+
+        .input-panel {
+            display: flex;
+            padding: 12px;
+            background: white;
+            border-top: 1px solid #f0f0f0;
+            gap: 8px;
+        }
+
+        .dark-mode .input-panel {
+            background: #3b3663;
+            border-top: 1px solid #7c3aed;
+        }
+
+        .input-panel input {
+            flex: 1;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .dark-mode .input-panel input {
+            background: #232136;
+            color: #ede9fe;
+            border: 1px solid #7c3aed;
+        }
+
+        .dark-mode .input-panel input::placeholder {
+            color: #a78bfa;
+        }
+
+        .send-btn {
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .send-btn:hover {
+            background: #5b21b6;
+        }
+
+        .dark-mode .send-btn {
+            background: #a78bfa;
+        }
+
+        .dark-mode .send-btn:hover {
+            background: #7c3aed;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Chat Button -->
+    <button class="chat-button" id="chatButton">
+        <svg id="buttonIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </button>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+            <div class="chat-header">
+                Spotem
+                <button class="theme-toggle" id="themeToggle">
+                    <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="welcome-body">
+                <div class="bot-message">
+                    <span>👋 Hi, I'm SpotemBOT — your smart cloud assistant!</span>
+                </div>
+                <div class="bot-message secondary">
+                    Welcome to the future of conversations! 🚀<br>
+                    Powered by advanced AI, I'm here to be your intelligent companion—ready to answer, assist, and
+                    inspire. <br>
+                    Set your preferences below and let's unlock a world of smart possibilities together.
+                </div>
+
+                <div class="language-section">
+                    <label class="language-label" for="languageSelect">Select your language</label>
+                    <select class="language-select" id="languageSelect">
+                        <option value="" selected disabled>Select your language</option>
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Gujarati">Gujarati</option>
+                        <option value="Arabic">Arabic</option>
+                    </select>
+                </div>
+
+                <div class="avatars">
+                    <div class="avatar">
+                        <span>👋 Hi, I'm Oria!</span>
+                    </div>
+                    <div class="avatar">
+                        <span>👋 Hi, I'm Oren!</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="continue-btn" id="continueBtn" disabled>Continue</button>
+        </div>
+
+        <!-- Chat Screen -->
+        <div class="chat-screen" id="chatScreen">
+            <div class="simple-header">Spotem</div>
+
+            <div class="messages" id="messages">
+                <div class="message bot">👋 Hi! How can I help you today?</div>
+            </div>
+
+            <form class="input-panel" id="chatForm">
+                <input type="text" id="userInput" placeholder="Type your message..." required />
+                <button type="submit" class="send-btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Elements
+        const chatButton = document.getElementById('chatButton');
+        const chatWidget = document.getElementById('chatWidget');
+        const welcomeScreen = document.getElementById('welcomeScreen');
+        const chatScreen = document.getElementById('chatScreen');
+        const languageSelect = document.getElementById('languageSelect');
+        const continueBtn = document.getElementById('continueBtn');
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const chatForm = document.getElementById('chatForm');
+        const userInput = document.getElementById('userInput');
+        const messages = document.getElementById('messages');
+        const buttonIcon = document.getElementById('buttonIcon');
+
+        let isOpen = false;
+
+        // Toggle chat widget
+        chatButton.addEventListener('click', function () {
+            isOpen = !isOpen;
+            chatWidget.classList.toggle('active');
+
+            // Change button icon
+            if (isOpen) {
+                buttonIcon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+            } else {
+                buttonIcon.innerHTML = '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>';
+            }
+        });
+
+        // Enable continue button when language is selected
+        languageSelect.addEventListener('change', function () {
+            continueBtn.disabled = !this.value;
+        });
+
+        // Switch to chat screen
+        continueBtn.addEventListener('click', function () {
+            welcomeScreen.style.display = 'none';
+            chatScreen.classList.add('active');
+        });
+
+        // Theme toggle
+        const sunIcon = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+        const moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+
+        function applyTheme() {
+            const isDark = localStorage.getItem('theme') === 'dark';
+            document.body.classList.toggle('dark-mode', isDark);
+            themeIcon.innerHTML = isDark ? moonIcon : sunIcon;
+        }
+
+        themeToggle.addEventListener('click', function () {
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+            applyTheme();
+        });
+
+        // Apply theme on load
+        applyTheme();
+
+        // Chat functionality
+        chatForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            addMessage(text, 'user');
+            userInput.value = '';
+
+            // Call backend /chat
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
+                const data = await response.json();
+                addMessage(data.reply, 'bot');
+            } catch (err) {
+                addMessage("⚠️ Error: could not connect to server", 'bot');
+            }
+        });
+
+        // Message rendering function
+        function addMessage(text, sender) {
+            const msg = document.createElement('div');
+            msg.className = 'message ' + sender;
+            msg.textContent = text;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
+
+</body>
+
+</html>

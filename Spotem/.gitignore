@@ -1,0 +1,23 @@
+# Environment secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Installers
+*.exe
+
+# FAISS index (large binary files)
+# Uncomment if you don't want to track these in git
+# faiss_index_new/
+# faiss_index_ae/

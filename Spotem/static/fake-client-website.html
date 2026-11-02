@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotem - Smart Security Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: #1a1a2e;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #7c3aed;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 100px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #a78bfa;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-btn {
+            background: linear-gradient(90deg, #7c3aed, #a78bfa);
+            color: white;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 40px;
+            background: #f8f9fb;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #1a1a2e;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .about p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #1a1a2e;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .contact p {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .contact-btn {
+            background: #7c3aed;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            padding: 30px 40px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .services {
+                padding: 50px 20px;
+            }
+
+            nav {
+                padding: 14px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo"><span>Spotem</span>.ai</div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Smart <span>Security</span> Solutions<br>for Modern Facilities</h1>
+        <p>AI-driven camera analytics, real-time tracking, and intelligent monitoring for industrial and warehouse
+            operations.</p>
+        <a href="#services" class="hero-btn">Explore Services</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📹</div>
+                <h3>AI Camera Analytics</h3>
+                <p>Real-time detection of unusual activities using advanced computer vision and deep learning
+                    algorithms.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>BEAT Management</h3>
+                <p>Customizable patrol routes and checkpoints for security guards with GPS-based tracking.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📍</div>
+                <h3>Live Tracking</h3>
+                <p>Monitor security personnel and assets in real-time with our advanced tracking dashboard.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Vehicle Monitoring</h3>
+                <p>Automated license plate recognition and vehicle movement tracking across your facility.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚨</div>
+                <h3>Alert Systems</h3>
+                <p>Instant notifications and escalation protocols when security events are detected.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Analytics Dashboard</h3>
+                <p>Comprehensive reports and insights to optimize your security operations continuously.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Spotem</h2>
+        <p>Spotem is a comprehensive security solution designed for modern industrial and warehouse facilities. Our
+            platform combines AI-powered surveillance with human expertise to deliver unmatched protection.</p>
+        <p>With features like smart camera analytics, customizable BEAT management, and real-time tracking, we ensure
+            your operations stay secure around the clock.</p>
+        <p>Trusted by leading facilities across the country, Spotem represents the future of intelligent security
+            management.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Ready to Secure Your Facility?</h2>
+        <p>Get in touch with our team to schedule a demo and see Spotem in action.</p>
+        <button class="contact-btn">Schedule a Demo</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Spotem.ai - All Rights Reserved | Smart Security Solutions</p>
+    </footer>
+
+    <!-- 
+        THIS IS THE ONLY LINE THE CLIENT NEEDS TO ADD
+        It loads the Spotem AI chatbot widget
+    -->
+    <script src="/static/embed.js" defer></script>
+
+</body>
+
+</html>

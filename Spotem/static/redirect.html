@@ -1,0 +1,141 @@
+<!-- Chatbot Integration -->
+<div id="calyza-chatbot-wrapper">
+
+    <!-- Chat Button with Gradient Style -->
+    <button id="chatBtn" aria-label="Open Chatbot" class="chat-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+    
+    <!-- Chatbot Overlay -->
+    <div class="overlay" id="overlay" style="display:none;">
+      <div class="phone-frame" role="dialog" aria-modal="true" aria-label="CalyzaBOT">
+        <button class="close-btn" id="closeBtn" aria-label="Close chatbot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <iframe
+          class="bot-frame"
+          id="botFrame"
+          title="CalyzaBOT"
+          src="/chat.html"
+          allow="clipboard-write; microphone;">
+        </iframe>
+      </div>
+    </div>
+    
+    <style>
+    /* Hide the default UP button */
+    .button-back-to-top {
+      display: none !important;
+    }
+    
+    /* Gradient Chat Button */
+    .chat-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+      transition: all 0.3s ease;
+      z-index: 10000;
+    }
+    
+    /* Overlay container */
+    .overlay {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      z-index: 9999;
+    }
+    
+    /* Chatbot frame (responsive) */
+    .phone-frame {
+      width: min(92vw, 360px);
+      height: min(82vh, 620px);
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      overflow: hidden;
+      background: #fff;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Close button */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+    
+    /* Iframe */
+    .bot-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 1024px) {
+      .overlay { bottom: 96px; right: 24px; }
+    }
+
+    @media (max-width: 768px) {
+      .chat-btn { bottom: 16px; right: 16px; }
+      .overlay { bottom: 88px; right: 16px; }
+      .phone-frame { width: 92vw; height: 80vh; border-radius: 20px; }
+    }
+
+    @media (max-width: 420px) {
+      .overlay { bottom: 0; right: 0; left: 0; }
+      .phone-frame {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+      }
+    }
+    </style>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const overlay = document.getElementById("overlay");
+      const chatBtn = document.getElementById("chatBtn");
+      const closeBtn = document.getElementById("closeBtn");
+      const botFrame = document.getElementById("botFrame");
+
+      if (chatBtn && overlay) {
+        chatBtn.addEventListener("click", () => {
+          overlay.style.display = overlay.style.display === "block" ? "none" : "block";
+          // Focus iframe when opened
+          if (overlay.style.display === "block" && botFrame) {
+            try { botFrame.contentWindow.focus(); } catch (e) {}
+          }
+        });
+      }
+
+      if (closeBtn && overlay) {
+        closeBtn.addEventListener("click", () => {
+          overlay.style.display = "none";
+        });
+      }
+    });
+    </script>
+    
+    </div>
+    

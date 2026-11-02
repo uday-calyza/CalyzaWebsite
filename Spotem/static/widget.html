@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Widget Launcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', Arial, sans-serif; min-height: 100vh; background: #f5f6fa; }
+
+        /* Floating Button */
+        .chat-button {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 1000;
+        }
+        .chat-button:hover { transform: scale(1.08); box-shadow: 0 12px 32px rgba(124, 58, 237, 0.4); }
+        .chat-button svg { width: 28px; height: 28px; fill: #fff; }
+
+        /* Overlay phone screen */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.35);
+            display: none;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 24px;
+            z-index: 999;
+        }
+        .overlay.active { display: flex; }
+
+        .phone-frame {
+            width: 350px;
+            height: 610px;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.18);
+            border: 1.5px solid #e0e0e0;
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.25s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(24px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.06);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+            z-index: 2;
+        }
+        .close-btn:hover { background: rgba(0,0,0,0.12); }
+        .close-btn svg { width: 18px; height: 18px; stroke: #4b5563; }
+
+        .bot-frame {
+            position: absolute;
+            inset: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+        }
+    </style>
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' *;">
+</head>
+<body>
+    <!-- Floating round widget button -->
+    <button class="chat-button" id="chatButton" aria-label="Open chatbot">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </button>
+
+    <!-- Overlay with phone-style container that loads the external bot -->
+    <div class="overlay" id="overlay">
+        <div class="phone-frame" role="dialog" aria-modal="true" aria-label="CalyzaBOT">
+            <button class="close-btn" id="closeBtn" aria-label="Close chatbot">
+                <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <iframe
+                class="bot-frame"
+                id="botFrame"
+                title="CalyzaBOT"
+                src="https://www.chatbot.calyzatech.com/"
+                allow="clipboard-write; microphone;">
+            </iframe>
+        </div>
+    </div>
+    
+
+    <script>
+        const chatButton = document.getElementById('chatButton');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.getElementById('closeBtn');
+        const botFrame = document.getElementById('botFrame');
+
+        function openOverlay() {
+            overlay.classList.add('active');
+        }
+
+        function closeOverlay() {
+            overlay.classList.remove('active');
+        }
+
+        chatButton.addEventListener('click', openOverlay);
+        closeBtn.addEventListener('click', closeOverlay);
+
+        // Close when clicking outside the phone frame
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) {
+                closeOverlay();
+            }
+        });
+
+        // Optional: reload frame on open for freshest content
+        overlay.addEventListener('transitionend', function () {
+            if (overlay.classList.contains('active')) {
+                try { botFrame.contentWindow.focus(); } catch (_) {}
+            }
+        });
+    </script>
+</body>
+</html>
+

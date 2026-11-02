@@ -1,0 +1,18 @@
+nohup: ignoring input
+INFO:     Started server process [8509]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51422 - "GET /api/ HTTP/1.1" 200 OK
+INFO:     None:0 - "GET /api/ HTTP/1.1" 200 OK
+INFO:     None:0 - "POST /api/contact HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46704 - "GET /health HTTP/1.1" 404 Not Found
+INFO:     66.179.9.231:0 - "GET /api/session/properties HTTP/1.1" 404 Not Found
+INFO:     66.179.9.231:0 - "GET /api/session/properties HTTP/1.1" 404 Not Found
+INFO:     66.179.9.231:0 - "GET /api/session/properties HTTP/1.1" 404 Not Found
+INFO:     66.179.9.231:0 - "GET /api/session/properties HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55014 - "GET /health HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8509]

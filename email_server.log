@@ -1,0 +1,13 @@
+nohup: ignoring input
+INFO:     Started server process [27796]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:52660 - "POST /api/contact HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58612 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     13.126.198.104:0 - "POST /api/contact HTTP/1.1" 200 OK
+INFO:     171.61.163.71:0 - "POST /api/contact HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27796]
