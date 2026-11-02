@@ -85,7 +85,7 @@ export default function HomeClosing() {
                   Visit us
                 </span>
                 <span className="mt-2 block max-w-[16rem] text-sm leading-relaxed text-calyza-ivory/60">
-                  A208, Mondeal Heights, Satellite, Ahmedabad, Gujarat 380015
+                  E-1009, Ganesh Glory 11, Jagatpur Road, Gota, Ahmedabad, Gujarat – 382470
                 </span>
               </div>
             </div>

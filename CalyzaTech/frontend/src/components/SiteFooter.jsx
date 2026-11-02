@@ -38,6 +38,13 @@ export default function SiteFooter() {
               </Link>
             ))}
             <Link
+              to="/privacy"
+              data-testid="footer-link-privacy"
+              className="text-[11px] uppercase tracking-[0.2em] text-calyza-ivory/50 transition-colors duration-300 hover:text-calyza-ivory"
+            >
+              Privacy Statement
+            </Link>
+            <Link
               to="/contact"
               data-testid="footer-link-strategy-call"
               className="text-[11px] uppercase tracking-[0.2em] text-calyza-violetB transition-colors duration-300 hover:text-calyza-ivory"

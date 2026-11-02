@@ -27,6 +27,7 @@ import AIFactoryPage from '@/pages/AIFactoryPage';
 import CaseStudiesPage from '@/pages/CaseStudiesPage';
 import CaseStudyDetail from '@/pages/CaseStudyDetail';
 import ContactPage from '@/pages/ContactPage';
+import PrivacyPage from '@/pages/PrivacyPage';
 import { JOURNEY } from '@/data/content';
 
 /* Retry a failed chunk once, then degrade to nothing instead of crashing the app */
@@ -111,6 +112,7 @@ function AnimatedRoutes() {
         <Route path="/case-studies" element={<Routed name="case-studies"><CaseStudiesPage /></Routed>} />
         <Route path="/case-studies/:slug" element={<Routed name="case-detail"><CaseStudyDetail /></Routed>} />
         <Route path="/contact" element={<Routed name="contact"><ContactPage /></Routed>} />
+        <Route path="/privacy" element={<Routed name="privacy"><PrivacyPage /></Routed>} />
         {/* Legacy case-study URLs → new structure (preserves old links) */}
         <Route path="/mortage-processing" element={<Navigate to="/case-studies/ai-agent-mortgage-application-processing" replace />} />
         <Route path="/serverless-ai-powered-invoice-automation-on-aws" element={<Navigate to="/case-studies/ai-powered-invoice-automation-on-aws" replace />} />

@@ -106,7 +106,14 @@ async def create_contact_message(input: ContactMessageCreate):
 # ---------------- Calyza AI concierge (LLM, streamed) ----------------
 import json
 from fastapi.responses import StreamingResponse
-from emergentintegrations.llm.chat import LlmChat, UserMessage, TextDelta, StreamDone
+from fastapi import HTTPException
+
+try:
+    from emergentintegrations.llm.chat import LlmChat, UserMessage, TextDelta, StreamDone
+    EMERGENT_AVAILABLE = True
+except ImportError:
+    EMERGENT_AVAILABLE = False
+    print("WARNING: emergentintegrations not installed — /api/chat endpoint disabled")
 
 CALYZA_SYSTEM_PROMPT = """You are Calyza AI, the concierge on the CalyzaTech website. You help visitors understand what CalyzaTech builds and guide them to the right page.
 
@@ -158,6 +165,11 @@ chat_sessions = {}
 
 @api_router.post("/chat")
 async def calyza_chat(input: ChatRequest):
+    if not EMERGENT_AVAILABLE:
+        raise HTTPException(
+            status_code=503,
+            detail="AI chat is not available in this environment (emergentintegrations package not installed)."
+        )
     session = chat_sessions.get(input.session_id)
     if session is None:
         session = LlmChat(

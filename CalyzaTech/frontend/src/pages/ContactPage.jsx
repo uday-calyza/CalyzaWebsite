@@ -171,7 +171,7 @@ export default function ContactPage() {
               <div data-testid="contact-direct-address" className="block">
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-t-acc-ter">Visit us</span>
                 <span className="mt-2 block max-w-sm text-sm leading-relaxed text-t-fg-sec">
-                  A208, Mondeal Heights, Sarkhej Gandhinagar Service Road, Near Wide Angle Cinema, Ramdevnagar, Satellite, Ahmedabad, Gujarat 380015
+                  E-1009, Ganesh Glory 11, Jagatpur Road, Gota, Ahmedabad, Gujarat – 382470
                 </span>
               </div>
             </div>
