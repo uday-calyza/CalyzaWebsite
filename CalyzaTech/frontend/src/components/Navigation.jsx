@@ -44,7 +44,7 @@ export default function Navigation() {
 
           <div className="hidden items-center gap-8 md:flex">
             {NAV_LINKS.map((link) => {
-              const active = location.pathname === link.href;
+              const active = location.pathname === link.href || location.pathname.startsWith(link.href + '/') && link.href !== '/';
               return (
                 <Link
                   key={link.label}
