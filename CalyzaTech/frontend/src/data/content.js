@@ -2,7 +2,7 @@ export const NAV_LINKS = [
   { label: 'Home', href: '/', testId: 'nav-link-home' },
   { label: 'Services', href: '/services', testId: 'nav-link-services' },
   { label: 'Case Studies', href: '/case-studies', testId: 'nav-link-case-studies' },
-  { label: 'Events', href: '/events', testId: 'nav-link-events' },
+  { label: 'Webinar', href: '/event/webinar', testId: 'nav-link-events' },
   { label: 'Contact', href: '/contact', testId: 'nav-link-contact' },
 ];
 
